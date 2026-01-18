@@ -1,0 +1,15 @@
+name: epc
+publish_to: none
+
+environment:
+  sdk: "^3.10.7"
+
+workspace:
+  - apps/quiz
+  - packages/monetization
+
+dev_dependencies:
+  melos: ^7.3.0
+
+melos:
+  # aquí podrías redefinir configuraciones previas del melos.yaml

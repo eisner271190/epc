@@ -1,0 +1,51 @@
+# Archivos de configuración de IDE
+melos_epc.iml
+# Dart & Flutter
+.dart_tool/
+.packages
+.pub/
+build/
+coverage/
+
+# Melos
+.melos_tool/
+
+# IDEs
+.idea/
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Others
+.env
+
+# Android
+**/android/.gradle/
+**/android/local.properties
+**/android/app/build/
+
+# iOS
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/
+**/ios/build/
+
+# Web
+**/web/generated/
+
+# Windows
+**/windows/Flutter/
+**/windows/build/
+
+# macOS
+**/macos/Flutter/
+**/macos/build/
+
+# Linux
+**/linux/Flutter/
+**/linux/build/
