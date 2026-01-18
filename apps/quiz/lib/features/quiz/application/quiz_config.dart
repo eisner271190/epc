@@ -1,0 +1,30 @@
+/// Configuración del quiz
+/// Responsabilidad: Almacenar y gestionar configuración del quiz
+class QuizConfig {
+  String topic;
+  String language;
+  int numQuestions;
+  int optionsCount;
+  int? timePerQuestionSeconds;
+
+  QuizConfig({
+    this.topic = '',
+    this.language = 'Español',
+    this.numQuestions = 5,
+    this.optionsCount = 4,
+    this.timePerQuestionSeconds,
+  });
+
+  void setTopic(String value) => topic = value;
+  void setLanguage(String value) => language = value;
+  void setNumQuestions(int value) => numQuestions = value;
+  void setOptionsCount(int value) => optionsCount = value;
+  void setTimePerQuestion(int? value) => timePerQuestionSeconds = value;
+
+  Map<String, dynamic> toMap() => {
+    'topic': topic,
+    'language': language,
+    'numQuestions': numQuestions,
+    'optionsCount': optionsCount,
+  };
+}

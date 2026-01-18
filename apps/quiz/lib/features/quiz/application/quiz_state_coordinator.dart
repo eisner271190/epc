@@ -1,0 +1,57 @@
+import 'package:quiz_generator/features/quiz/domain/question.dart';
+import 'package:quiz_generator/shared/log/logger.dart';
+
+/// Coordinador de estado del quiz
+/// Responsabilidad: Gestionar navegación entre preguntas y selección
+class QuizStateCoordinator {
+  List<Question> questions = [];
+  int currentIndex = 0;
+
+  void reset() {
+    questions = [];
+    currentIndex = 0;
+  }
+
+  void setQuestions(List<Question> newQuestions) {
+    questions = newQuestions;
+    currentIndex = 0;
+    Logger.info('[STATE] Questions set', data: {'count': questions.length});
+  }
+
+  bool canGoNext() => currentIndex < questions.length - 1;
+  bool canGoPrevious() => currentIndex > 0;
+
+  void next() {
+    if (canGoNext()) {
+      currentIndex++;
+      Logger.info('[STATE] Next question', data: {'index': currentIndex});
+    }
+  }
+
+  void previous() {
+    if (canGoPrevious()) {
+      currentIndex--;
+      Logger.info('[STATE] Previous question', data: {'index': currentIndex});
+    }
+  }
+
+  void selectAnswer(int answerIndex) {
+    if (currentIndex >= questions.length) return;
+
+    questions[currentIndex] = questions[currentIndex].copyWith(
+      selectedIndex: answerIndex,
+    );
+
+    Logger.info(
+      '[STATE] Answer selected',
+      data: {'question': currentIndex, 'answer': answerIndex},
+    );
+  }
+
+  Question? get currentQuestion {
+    if (currentIndex >= 0 && currentIndex < questions.length) {
+      return questions[currentIndex];
+    }
+    return null;
+  }
+}

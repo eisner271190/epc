@@ -1,0 +1,322 @@
+{
+  "appTitle": "Quiz",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  "configTitle": "Quiz Configuration",
+  "@configTitle": {
+    "description": "Quiz configuration title"
+  },
+  "startButton": "Start",
+  "@startButton": {
+    "description": "Start button label"
+  },
+  "settingsButton": "Settings",
+  "@settingsButton": {
+    "description": "Settings button label"
+  },
+  "historyButton": "History",
+  "@historyButton": {
+    "description": "History button label"
+  },
+  "topicLabel": "Topic",
+  "@topicLabel": {
+    "description": "Topic input field label"
+  },
+  "previousTopicsLabel": "Previous Topics",
+  "@previousTopicsLabel": {
+    "description": "Previous topics label"
+  },
+  "numQuestionsLabel": "Number of questions",
+  "@numQuestionsLabel": {
+    "description": "Number of questions label"
+  },
+  "optionsCountLabel": "Options per question",
+  "@optionsCountLabel": {
+    "description": "Options per question label"
+  },
+  "languageLabel": "Language",
+  "@languageLabel": {
+    "description": "Language selection label"
+  },
+  "timePerQuestionLabel": "Time per question: ",
+  "@timePerQuestionLabel": {
+    "description": "Time per question label with trailing space"
+  },
+  "timeLabel": "Time per question (seconds)",
+  "@timeLabel": {
+    "description": "Time per question in seconds label"
+  },
+  "unlimitedTime": "Unlimited",
+  "@unlimitedTime": {
+    "description": "Unlimited time option"
+  },
+  "enterTopicMessage": "Enter a topic",
+  "@enterTopicMessage": {
+    "description": "Message to enter a topic"
+  },
+  "quizTitle": "Quiz",
+  "@quizTitle": {
+    "description": "Quiz screen title"
+  },
+  "questionLabel": "Question",
+  "@questionLabel": {
+    "description": "Question label"
+  },
+  "ofPreposition": "of",
+  "@ofPreposition": {
+    "description": "Preposition 'of' for question numbering"
+  },
+  "timeRemaining": "Time remaining:",
+  "@timeRemaining": {
+    "description": "Time remaining label"
+  },
+  "previousButton": "Previous",
+  "@previousButton": {
+    "description": "Previous button label"
+  },
+  "finishButton": "Finish",
+  "@finishButton": {
+    "description": "Finish button label"
+  },
+  "resultsTitle": "Results",
+  "@resultsTitle": {
+    "description": "Results screen title"
+  },
+  "correctLabel": "Correct:",
+  "@correctLabel": {
+    "description": "Correct answers label"
+  },
+  "incorrectLabel": "Incorrect:",
+  "@incorrectLabel": {
+    "description": "Incorrect answers label"
+  },
+  "percentageLabel": "Percentage:",
+  "@percentageLabel": {
+    "description": "Percentage label"
+  },
+  "explanationsLabel": "Explanations of incorrect answers:",
+  "@explanationsLabel": {
+    "description": "Explanations of incorrect answers label"
+  },
+  "saveHistoryButton": "Save to history",
+  "@saveHistoryButton": {
+    "description": "Save to history button label"
+  },
+  "repeatQuizButton": "Repeat quiz",
+  "@repeatQuizButton": {
+    "description": "Repeat quiz button label"
+  },
+  "backToStartButton": "Back to start",
+  "@backToStartButton": {
+    "description": "Back to start button label"
+  },
+  "historyTitle": "Topic History",
+  "@historyTitle": {
+    "description": "History screen title"
+  },
+  "noTopics": "No topics saved",
+  "@noTopics": {
+    "description": "Message when no topics are saved"
+  },
+  "deleteTopic": "Delete",
+  "@deleteTopic": {
+    "description": "Delete topic button label"
+  },
+  "backButton": "Back",
+  "@backButton": {
+    "description": "Back button label"
+  },
+  "recentTopics": "Recent topics",
+  "@recentTopics": {
+    "description": "Recent topics section title"
+  },
+  "viewAllTopics": "View all topics",
+  "@viewAllTopics": {
+    "description": "View all topics button label"
+  },
+  "settingsTitle": "Settings",
+  "@settingsTitle": {
+    "description": "Settings screen title"
+  },
+  "themeToggle": "Toggle theme",
+  "@themeToggle": {
+    "description": "Theme toggle label"
+  },
+  "drawerHeader": "Your topics",
+  "@drawerHeader": {
+    "description": "Drawer header text"
+  },
+  "errorPrefix": "Error: ",
+  "@errorPrefix": {
+    "description": "Error message prefix"
+  },
+  "spanish": "Español",
+  "@spanish": {
+    "description": "Spanish language name"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language name"
+  },
+  "reviewQuizTitle": "Review Quiz",
+  "@reviewQuizTitle": {
+    "description": "Review quiz screen title"
+  },
+  "reviewPlaceholder": "Implemented in History/Result screens",
+  "@reviewPlaceholder": {
+    "description": "Placeholder for review functionality"
+  },
+  "savedToHistory": "Saved to history",
+  "@savedToHistory": {
+    "description": "Message when saved to history"
+  },
+  "noQuestions": "No questions available",
+  "@noQuestions": {
+    "description": "Message when no questions available"
+  },
+  "mockExplanationPrefix": "Explanation: The correct answer is option ",
+  "@mockExplanationPrefix": {
+    "description": "Mock explanation prefix for correct answer"
+  },
+  "mockQuestionTemplate": "{topic} - Question {idx}: Briefly describe a key concept related to {topic}.",
+  "@mockQuestionTemplate": {
+    "description": "Template for mock questions",
+    "placeholders": {
+      "topic": {
+        "type": "String",
+        "example": "Flutter"
+      },
+      "idx": {
+        "type": "String",
+        "example": "1"
+      }
+    }
+  },
+  "mockOptionTemplate": "Option {optIdx} for question {qIdx}",
+  "@mockOptionTemplate": {
+    "description": "Template for mock options",
+    "placeholders": {
+      "optIdx": {
+        "type": "String",
+        "example": "A"
+      },
+      "qIdx": {
+        "type": "String",
+        "example": "1"
+      }
+    }
+  },
+  "processingAuth": "Processing authentication...",
+  "@processingAuth": {
+    "description": "Processing authentication message"
+  },
+  "pressEnterHint": "Press Enter to start",
+  "@pressEnterHint": {
+    "description": "Hint to press Enter to start"
+  },
+  "userLabel": "User",
+  "@userLabel": {
+    "description": "User field label"
+  },
+  "userHint": "Enter epc",
+  "@userHint": {
+    "description": "User field hint"
+  },
+  "passwordLabel": "Password",
+  "@passwordLabel": {
+    "description": "Password field label"
+  },
+  "passwordHint": "Enter epc",
+  "@passwordHint": {
+    "description": "Password field hint"
+  },
+  "pleaseEnterUser": "Please enter a user",
+  "@pleaseEnterUser": {
+    "description": "Validation message for user field"
+  },
+  "pleaseEnterPassword": "Please enter a password",
+  "@pleaseEnterPassword": {
+    "description": "Validation message for password field"
+  },
+  "cancelButton": "Cancel",
+  "@cancelButton": {
+    "description": "Cancel button label"
+  },
+  "viewPlansButton": "View Plans",
+  "@viewPlansButton": {
+    "description": "View plans button label"
+  },
+  "getPremiumLabel": "Get Premium",
+  "@getPremiumLabel": {
+    "description": "Get premium label"
+  },
+  "restorePurchasesButton": "Restore purchases",
+  "@restorePurchasesButton": {
+    "description": "Restore purchases button label"
+  },
+  "plansSubscriptionTitle": "Plans & Subscription",
+  "@plansSubscriptionTitle": {
+    "description": "Plans and subscription screen title"
+  },
+  "confirmPurchaseTitle": "Confirm purchase",
+  "@confirmPurchaseTitle": {
+    "description": "Confirm purchase dialog title"
+  },
+  "buyButton": "Buy",
+  "@buyButton": {
+    "description": "Buy button label"
+  },
+  "premiumPlusComingSoon": "Premium Plus coming soon",
+  "@premiumPlusComingSoon": {
+    "description": "Premium plus coming soon message"
+  },
+  "mockEmailInfo": "Email: test@example.com",
+  "@mockEmailInfo": {
+    "description": "Mock email information"
+  },
+  "mockPasswordInfo": "Password: any non-empty value",
+  "@mockPasswordInfo": {
+    "description": "Mock password information"
+  },
+  "loginButton": "Login",
+  "@loginButton": {
+    "description": "Login button label"
+  },
+  "welcomeToPremium": "Welcome to Premium! 🎉",
+  "@welcomeToPremium": {
+    "description": "Welcome message shown after successful premium purchase"
+  },
+  "changeLanguage": "Change language",
+  "@changeLanguage": {
+    "description": "Button label to change language"
+  },
+  "languageChanged": "Language changed",
+  "@languageChanged": {
+    "description": "Message shown when language is changed"
+  },
+  "limitReached": "Limit Reached!",
+  "@limitReached": {
+    "description": "Title for upgrade dialog when limit is reached"
+  },
+  "limitReachedMessage": "You've used all your free quizzes this month.\n\nUpgrade to Premium for unlimited quizzes without ads.",
+  "@limitReachedMessage": {
+    "description": "Message for upgrade dialog when limit is reached"
+  },
+  "getPremium": "Get Premium",
+  "@getPremium": {
+    "description": "Button label to get premium subscription"
+  },
+  "processingAuth": "Processing authentication...",
+  "@processingAuth": {
+    "description": "Message shown while processing authentication"
+  },
+  "confirmPurchaseMonthly": "Subscribe to Premium Monthly for $4.99?",
+  "@confirmPurchaseMonthly": {
+    "description": "Confirmation message for monthly premium purchase"
+  },
+  "confirmPurchaseAnnual": "Subscribe to Premium Annual for $39.99?",
+  "@confirmPurchaseAnnual": {
+    "description": "Confirmation message for annual premium purchase"
+  }
+}

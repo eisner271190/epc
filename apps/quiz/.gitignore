@@ -1,0 +1,125 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub/
+build/
+flutter_*.png
+
+# Android related
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+**/android/.gradle/
+**/android/captures/
+**/android/gradle/
+**/android/key.properties
+**/android/local.properties
+**/android/.idea/
+**/android/.settings/
+**/android/.externalNativeBuild/
+**/android/.cxx/
+android/app/build/
+
+# iOS related
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Pods/
+**/ios/Runner.xcworkspace/
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Runner/Info.plist
+**/ios/Runner/Info.plist.example
+**/ios/RunnerTests/
+**/ios/.symlinks/
+**/ios/.generated/
+**/ios/.dart_tool/
+
+# macOS related
+**/macos/Flutter/ephemeral/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/GeneratedPluginRegistrant.*
+**/macos/Pods/
+**/macos/Runner.xcworkspace/
+**/macos/RunnerTests/
+**/macos/.symlinks/
+**/macos/.generated/
+**/macos/.dart_tool/
+
+# Linux related
+**/linux/flutter/
+**/linux/ephemeral/
+**/linux/.dart_tool/
+
+# Windows related
+**/windows/flutter/
+**/windows/ephemeral/
+**/windows/.dart_tool/
+
+# Web related
+**/web/.dart_tool/
+
+# VS Code
+.vscode/
+
+# Others
+*.iml
+*.ipr
+*.iws
+.idea/
+*.log
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+*.lock
+*.bak
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project
+
+# Sensitive files
+key.txt
+*.keystore
+*.jks
+*.p12
+*.pem
+*.crt
+*.der
+*.csr
+*.pfx
+*.asc
+*.gpg
+*.env
+.env.*
+
+# Output
+salida.txt
