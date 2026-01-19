@@ -16,6 +16,7 @@ import 'views/settings_screen.dart';
 import 'features/quiz/presentation/quiz_screen.dart';
 import 'features/quiz/presentation/result_screen.dart';
 import 'features/history/presentation/history_screen.dart';
+import 'views/screens/subscription_plans_screen.dart';
 
 class QuizGeneratorApp extends StatelessWidget {
   QuizGeneratorApp({super.key});
@@ -63,6 +64,8 @@ class QuizGeneratorApp extends StatelessWidget {
                   AppRoutes.result: (context) => const ResultScreen(),
                   AppRoutes.settings: (context) => const SettingsScreen(),
                   AppRoutes.history: (context) => const HistoryScreen(),
+                  AppRoutes.subscription: (context) =>
+                      const SubscriptionPlansScreen(),
                 },
               );
             },

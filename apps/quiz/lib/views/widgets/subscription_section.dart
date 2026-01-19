@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/routes.dart';
 
 /// Sección de estado de suscripción en configuración
 /// Responsabilidad: Mostrar info de suscripción y enlace a planes
@@ -21,7 +22,9 @@ class SubscriptionSection extends StatelessWidget {
         ),
         subtitle: const Text('Quizzes ilimitados sin publicidad'),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: () {}, // Acción deshabilitada o personalizada
+        onTap: () {
+          Navigator.of(context).pushNamed(AppRoutes.subscription);
+        },
       ),
     );
   }

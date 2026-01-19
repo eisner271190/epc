@@ -8,18 +8,9 @@ class MonetizationInitializer implements AppInitializer {
 
   @override
   Future<void> preUi() async {
-    debugPrint('[MonetizationInitializer] preUi() called');
-    await monetization.init();
-    debugPrint('[MonetizationInitializer] preUi() finished');
+    await monetization.initialize();
   }
 
   @override
-  Future<void> postUi(BuildContext context) async {
-    debugPrint('[MonetizationInitializer] postUi() called');
-    // Aquí puedes cargar datos pesados, ofertas, restaurar compras, etc.
-    // Ejemplo:
-    // await monetization.provider.getPlans();
-    // await monetization.provider.restore();
-    debugPrint('[MonetizationInitializer] postUi() finished');
-  }
+  Future<void> postUi(BuildContext context) async {}
 }

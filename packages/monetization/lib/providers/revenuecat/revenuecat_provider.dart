@@ -9,10 +9,12 @@ import '../../core/models/subscription_plan.dart';
 import '../../core/models/user_entitlement.dart';
 
 class RevenueCatProvider implements MonetizationProvider {
+  static final RevenueCatProvider _instance = RevenueCatProvider._internal();
+  factory RevenueCatProvider() => _instance;
+  RevenueCatProvider._internal();
   String _elapsed(Stopwatch sw) => '[${sw.elapsedMilliseconds}ms]';
   Offerings? _offerings;
   final _entitlementController = StreamController<UserEntitlement>.broadcast();
-  static const _plansKey = 'revenuecat_plans_cache';
   static const _entitlementKey = 'revenuecat_entitlement_cache';
 
   @override
@@ -52,51 +54,7 @@ class RevenueCatProvider implements MonetizationProvider {
 
   @override
   Future<List<SubscriptionPlan>> getPlans() async {
-    final sw = Stopwatch()..start();
-    debugPrint(
-      '[RevenueCatProvider] Obteniendo planes de suscripción... ${_elapsed(sw)}',
-    );
-    final prefs = await SharedPreferences.getInstance();
-    debugPrint(
-      '[RevenueCatProvider] SharedPreferences obtenido. ${_elapsed(sw)}',
-    );
-    final cached = prefs.getString(_plansKey);
-    if (cached != null) {
-      try {
-        final decoded = jsonDecode(cached) as List;
-        final cachedPlans = decoded
-            .map(
-              (e) => SubscriptionPlan(
-                id: e['id'],
-                name: e['name'],
-                price: e['price'],
-                period: e['period'],
-              ),
-            )
-            .toList();
-        debugPrint(
-          '[RevenueCatProvider] Planes obtenidos desde caché. ${_elapsed(sw)}',
-        );
-        // Devuelve el caché mientras se actualiza en background
-        _updatePlansCache();
-        return cachedPlans;
-      } catch (e) {
-        debugPrint(
-          '[RevenueCatProvider] Error al leer planes desde caché: $e ${_elapsed(sw)}',
-        );
-      }
-    }
-    debugPrint(
-      '[RevenueCatProvider] No hay caché, obteniendo planes desde RevenueCat. ${_elapsed(sw)}',
-    );
-    return await _updatePlansCache();
-  }
-
-  Future<List<SubscriptionPlan>> _updatePlansCache() async {
-    final sw = Stopwatch()..start();
-    debugPrint(
-      '[RevenueCatProvider] Actualizando caché de planes... ${_elapsed(sw)}',
-    );
+    debugPrint('[RevenueCatProvider] Obteniendo planes de suscripción...');
     final plans = <SubscriptionPlan>[];
     if (_offerings?.current != null) {
       for (final package in _offerings!.current!.availablePackages) {
@@ -109,33 +67,9 @@ class RevenueCatProvider implements MonetizationProvider {
           ),
         );
       }
-    }
-    final prefs = await SharedPreferences.getInstance();
-    debugPrint(
-      '[RevenueCatProvider] SharedPreferences obtenido. ${_elapsed(sw)}',
-    );
-    try {
-      prefs.setString(
-        _plansKey,
-        jsonEncode(
-          plans
-              .map(
-                (e) => {
-                  'id': e.id,
-                  'name': e.name,
-                  'price': e.price,
-                  'period': e.period,
-                },
-              )
-              .toList(),
-        ),
-      );
       debugPrint(
-        '[RevenueCatProvider] Caché de planes actualizado. ${_elapsed(sw)}',
-      );
-    } catch (e) {
-      debugPrint(
-        '[RevenueCatProvider] Error al actualizar caché de planes: $e ${_elapsed(sw)}',
+        '[RevenueCatProvider] Planes obtenidos de RevenueCat: '
+        '${plans.map((e) => '{id: ${e.id}, name: ${e.name}, price: ${e.price}, period: ${e.period}}').toList()}',
       );
     }
     return plans;
