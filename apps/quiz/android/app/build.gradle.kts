@@ -20,6 +20,7 @@ android {
     }
 
     defaultConfig {
+        manifestPlaceholders["ADMOB_APP_ID"] = System.getenv("ADMOB_APP_ID")
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.quiz_generator"
         // You can update the following values to match your application needs.

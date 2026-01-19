@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:monetization/monetization_module.dart';
 import 'app.dart';
 import 'core/service_factory.dart';
 import 'shared/env/env_config.dart';
@@ -23,6 +24,9 @@ void main(List<String> args) async {
   final authService = ServiceFactory.createAuthService();
 
   await authService.restoreSession();
+
+  // Inicializar el módulo de monetización
+  await MonetizationModule.initialize();
 
   _logAppStarting();
   runApp(QuizGeneratorApp());

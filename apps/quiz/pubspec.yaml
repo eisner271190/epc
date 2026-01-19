@@ -51,6 +51,9 @@ dependencies:
   freezed_annotation: ^3.1.0
   json_annotation: ^4.9.0
   # web: ^1.1.1
+
+  monetization:
+    path: ../../packages/monetization
   
 dev_dependencies:
   flutter_test:

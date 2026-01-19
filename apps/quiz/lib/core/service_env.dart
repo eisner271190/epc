@@ -5,14 +5,6 @@ abstract final class ServiceEnv {
 
   static const String keyAiMode = 'AI_SERVICE_MODE';
   static const String keyAuthMode = 'AUTH_SERVICE_MODE';
-  static const String keyAdMode = 'AD_SERVICE_MODE';
-  static const String keySubscriptionMode = 'SUBSCRIPTION_SERVICE_MODE';
 
-  static const List<String> allKeys = [
-    keyGlobalMode,
-    keyAiMode,
-    keyAuthMode,
-    keyAdMode,
-    keySubscriptionMode,
-  ];
+  static const List<String> allKeys = [keyGlobalMode, keyAiMode, keyAuthMode];
 }

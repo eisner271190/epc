@@ -1,13 +1,27 @@
+import 'package:monetization/providers/ads/admob_provider.dart';
+import 'package:monetization/providers/revenuecat/revenuecat_provider.dart';
+
 import 'core/interfaces/monetization_provider.dart';
 import 'core/interfaces/ads_provider.dart';
 
 import 'package:flutter/foundation.dart';
 
 class MonetizationModule {
-  final MonetizationProvider provider;
-  final AdsProvider adsProvider;
+  /// Crea e inicializa el módulo de monetización usando implementaciones por defecto de los providers.
+  /// Debes implementar MiMonetizationProvider y MiAdsProvider en tu app.
+  static Future<MonetizationModule> initialize() async {
+    final module = MonetizationModule();
+    await module.init();
+    return module;
+  }
 
-  MonetizationModule({required this.provider, required this.adsProvider});
+  late final MonetizationProvider provider;
+  late final AdsProvider adsProvider;
+
+  MonetizationModule() {
+    provider = RevenueCatProvider();
+    adsProvider = AdmobProvider();
+  }
 
   Future<void> init() async {
     debugPrint('[MonetizationModule] init() called');

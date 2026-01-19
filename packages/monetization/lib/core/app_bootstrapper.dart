@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../monetization_module.dart';
 import 'config/monetization_env.dart';
-import '../providers/revenuecat/revenuecat_provider.dart';
-import '../providers/ads/admob_provider.dart';
 import 'app_initializers_impl.dart';
 import '../ui/my_app.dart';
 import 'app_initialization_orchestrator.dart';
@@ -19,10 +17,7 @@ class AppBootstrapper {
     debugPrint('[AppBootstrapper] dotenv loaded');
     MonetizationEnv.validateAndLog();
     debugPrint('[AppBootstrapper] MonetizationEnv validated');
-    final monetization = MonetizationModule(
-      provider: RevenueCatProvider(),
-      adsProvider: AdmobProvider(),
-    );
+    final monetization = MonetizationModule();
     debugPrint('[AppBootstrapper] MonetizationModule created');
     final orchestrator = AppInitializationOrchestrator([
       EnvInitializer(),
