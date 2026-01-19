@@ -123,3 +123,6 @@ key.txt
 
 # Output
 salida.txt
+
+# Flutter plugins dependencies
+.flutter-plugins-dependencies
