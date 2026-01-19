@@ -3,3 +3,9 @@ name: epc
 packages:
   - apps/**
   - packages/**
+
+scripts:
+  run:quiz:chrome:
+    run: melos exec -c 1 --scope=quiz_generator -- flutter run -d chrome --debug --web-port=5000
+  run:quiz:mobile:
+    run: melos exec -c 1 --scope=quiz_generator -- flutter run -d 2201117SL --debug

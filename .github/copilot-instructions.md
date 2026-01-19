@@ -1,8 +1,5 @@
 
 # Instrucciones del Proyecto
-Aplica las instrucciones en p.md a todos los archivos del proyecto.
+DEBE aplicar las instrucciones de .github/p.md.
 
-[Obligatiorio] Idioma: Español
-
-# Instrucciones de Seguimiento
-Sigue también las instrucciones de .github/seguimiento.md.
+[Obligatorio] Idioma: Español
