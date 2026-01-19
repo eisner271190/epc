@@ -23,7 +23,7 @@ class SubscriptionStatusCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
               Text(
-                'Premium: quizzes ilimitados',
+                'Obtener plan premium',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
