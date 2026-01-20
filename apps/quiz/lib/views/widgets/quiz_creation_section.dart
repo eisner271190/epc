@@ -5,9 +5,9 @@ import 'package:quiz_generator/features/quiz/application/quiz_provider.dart';
 import 'package:quiz_generator/features/quiz/application/start_quiz_use_case.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import 'package:quiz_generator/core/routes.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 import 'upgrade_dialog.dart';
 
 /// Sección de creación de quiz

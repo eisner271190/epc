@@ -1,7 +1,7 @@
 import 'package:quiz_generator/core/service_mode.dart';
 import 'package:quiz_generator/core/service_env.dart';
-import 'package:quiz_generator/shared/helper/env_helper.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/helper/env_helper.dart';
+import 'package:core/core/log/logger.dart';
 import 'package:quiz_generator/features/auth/domain/i_auth_service.dart';
 import 'package:quiz_generator/features/auth/data/auth_service.dart';
 import 'package:quiz_generator/features/auth/data/mock_auth_service.dart';

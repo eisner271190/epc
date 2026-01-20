@@ -1,4 +1,4 @@
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import 'i_token_exchanger.dart';
 import '../storage/i_token_storage.dart';
 import '../session/i_session_manager.dart';

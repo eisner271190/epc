@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import '../domain/auth_user.dart';
 import 'revenuecat_sync.dart';
 import '../domain/i_auth_service.dart';

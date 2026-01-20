@@ -1,4 +1,4 @@
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import '../../domain/auth_user.dart';
 import '../storage/i_token_storage.dart';
 import '../user/i_user_manager.dart';

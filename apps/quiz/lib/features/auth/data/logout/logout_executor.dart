@@ -1,6 +1,6 @@
 import 'package:url_launcher/url_launcher.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
-import 'package:quiz_generator/shared/consume/i_http_client.dart';
+import 'package:core/core/log/logger.dart';
+import 'package:core/core/consume/i_http_client.dart';
 import 'package:quiz_generator/features/auth/config/auth_config.dart';
 import '../auth_constants.dart';
 import 'i_logout_executor.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/features/quiz/application/quiz_provider.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 import 'package:quiz_generator/widgets/labeled_slider.dart';
 
 /// Sección de configuración de quiz

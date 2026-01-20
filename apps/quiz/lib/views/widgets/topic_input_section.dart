@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 
 /// Widget para la sección de input de tema
 /// Responsabilidad: UI para seleccionar o escribir el tema del quiz

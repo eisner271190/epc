@@ -1,5 +1,5 @@
 import '../domain/i_auth_service.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 /// Gestor de autenticación con Google OAuth
 /// Responsabilidad: Ejecutar login con Hosted UI

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 class ThemeProvider extends ChangeNotifier {
   bool _isDarkMode = false;

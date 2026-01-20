@@ -1,7 +1,7 @@
-import 'package:http/http.dart' as http;
 import 'i_http_client.dart';
 import 'http_logger.dart';
 import 'http_body_encoder.dart';
+import 'package:http/http.dart' as http;
 
 /// Implementación de cliente HTTP usando package:http
 /// Responsabilidad: Ejecutar peticiones HTTP y mapear responses

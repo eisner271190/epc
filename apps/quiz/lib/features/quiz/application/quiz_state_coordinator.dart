@@ -1,5 +1,5 @@
 import 'package:quiz_generator/features/quiz/domain/question.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 /// Coordinador de estado del quiz
 /// Responsabilidad: Gestionar navegación entre preguntas y selección

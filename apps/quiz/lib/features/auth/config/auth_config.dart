@@ -1,6 +1,6 @@
-import '../../../shared/helper/env_helper.dart';
-import '../../../shared/log/logger.dart';
-import '../../../shared/env/env_logger.dart';
+import 'package:core/core/helper/env_helper.dart';
+import 'package:core/core/log/logger.dart';
+import 'package:core/core/env/env_logger.dart';
 import 'auth_env.dart';
 
 /// Configuración de autenticación con Cognito.

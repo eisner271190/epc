@@ -1,4 +1,4 @@
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import 'package:quiz_generator/features/auth/config/auth_config.dart';
 import '../pkce/i_pkce_generator.dart';
 import '../oauth/i_oauth_state_manager.dart';

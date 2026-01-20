@@ -1,4 +1,4 @@
-import 'package:quiz_generator/shared/helper/env_helper.dart';
+import 'package:core/core/helper/env_helper.dart';
 
 /// Configuración central de la aplicación.
 /// Encapsula el acceso a variables de entorno siguiendo SOLID.

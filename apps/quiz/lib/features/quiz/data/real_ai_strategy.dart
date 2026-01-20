@@ -3,7 +3,7 @@ import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/ai_strategy.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
 import 'package:quiz_generator/features/quiz/data/i_api_client.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 class RealAIStrategy implements AIStrategy {
   final IApiClient _apiClient;

@@ -12,8 +12,7 @@ part of 'log_entry.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LogEntry _$LogEntryFromJson(Map<String, dynamic> json) {
   return _LogEntry.fromJson(json);
@@ -42,13 +41,12 @@ abstract class $LogEntryCopyWith<$Res> {
   factory $LogEntryCopyWith(LogEntry value, $Res Function(LogEntry) then) =
       _$LogEntryCopyWithImpl<$Res, LogEntry>;
   @useResult
-  $Res call({
-    String prefix,
-    DateTime timestamp,
-    int? line,
-    String message,
-    Map<String, dynamic>? data,
-  });
+  $Res call(
+      {String prefix,
+      DateTime timestamp,
+      int? line,
+      String message,
+      Map<String, dynamic>? data});
 }
 
 /// @nodoc
@@ -72,31 +70,28 @@ class _$LogEntryCopyWithImpl<$Res, $Val extends LogEntry>
     Object? message = null,
     Object? data = freezed,
   }) {
-    return _then(
-      _value.copyWith(
-            prefix: null == prefix
-                ? _value.prefix
-                : prefix // ignore: cast_nullable_to_non_nullable
-                      as String,
-            timestamp: null == timestamp
-                ? _value.timestamp
-                : timestamp // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-            line: freezed == line
-                ? _value.line
-                : line // ignore: cast_nullable_to_non_nullable
-                      as int?,
-            message: null == message
-                ? _value.message
-                : message // ignore: cast_nullable_to_non_nullable
-                      as String,
-            data: freezed == data
-                ? _value.data
-                : data // ignore: cast_nullable_to_non_nullable
-                      as Map<String, dynamic>?,
-          )
-          as $Val,
-    );
+    return _then(_value.copyWith(
+      prefix: null == prefix
+          ? _value.prefix
+          : prefix // ignore: cast_nullable_to_non_nullable
+              as String,
+      timestamp: null == timestamp
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      line: freezed == line
+          ? _value.line
+          : line // ignore: cast_nullable_to_non_nullable
+              as int?,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ) as $Val);
   }
 }
 
@@ -104,18 +99,16 @@ class _$LogEntryCopyWithImpl<$Res, $Val extends LogEntry>
 abstract class _$$LogEntryImplCopyWith<$Res>
     implements $LogEntryCopyWith<$Res> {
   factory _$$LogEntryImplCopyWith(
-    _$LogEntryImpl value,
-    $Res Function(_$LogEntryImpl) then,
-  ) = __$$LogEntryImplCopyWithImpl<$Res>;
+          _$LogEntryImpl value, $Res Function(_$LogEntryImpl) then) =
+      __$$LogEntryImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String prefix,
-    DateTime timestamp,
-    int? line,
-    String message,
-    Map<String, dynamic>? data,
-  });
+  $Res call(
+      {String prefix,
+      DateTime timestamp,
+      int? line,
+      String message,
+      Map<String, dynamic>? data});
 }
 
 /// @nodoc
@@ -123,9 +116,8 @@ class __$$LogEntryImplCopyWithImpl<$Res>
     extends _$LogEntryCopyWithImpl<$Res, _$LogEntryImpl>
     implements _$$LogEntryImplCopyWith<$Res> {
   __$$LogEntryImplCopyWithImpl(
-    _$LogEntryImpl _value,
-    $Res Function(_$LogEntryImpl) _then,
-  ) : super(_value, _then);
+      _$LogEntryImpl _value, $Res Function(_$LogEntryImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of LogEntry
   /// with the given fields replaced by the non-null parameter values.
@@ -138,43 +130,41 @@ class __$$LogEntryImplCopyWithImpl<$Res>
     Object? message = null,
     Object? data = freezed,
   }) {
-    return _then(
-      _$LogEntryImpl(
-        prefix: null == prefix
-            ? _value.prefix
-            : prefix // ignore: cast_nullable_to_non_nullable
-                  as String,
-        timestamp: null == timestamp
-            ? _value.timestamp
-            : timestamp // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-        line: freezed == line
-            ? _value.line
-            : line // ignore: cast_nullable_to_non_nullable
-                  as int?,
-        message: null == message
-            ? _value.message
-            : message // ignore: cast_nullable_to_non_nullable
-                  as String,
-        data: freezed == data
-            ? _value._data
-            : data // ignore: cast_nullable_to_non_nullable
-                  as Map<String, dynamic>?,
-      ),
-    );
+    return _then(_$LogEntryImpl(
+      prefix: null == prefix
+          ? _value.prefix
+          : prefix // ignore: cast_nullable_to_non_nullable
+              as String,
+      timestamp: null == timestamp
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      line: freezed == line
+          ? _value.line
+          : line // ignore: cast_nullable_to_non_nullable
+              as int?,
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: freezed == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$LogEntryImpl implements _LogEntry {
-  const _$LogEntryImpl({
-    required this.prefix,
-    required this.timestamp,
-    this.line,
-    required this.message,
-    final Map<String, dynamic>? data,
-  }) : _data = data;
+  const _$LogEntryImpl(
+      {required this.prefix,
+      required this.timestamp,
+      this.line,
+      required this.message,
+      final Map<String, dynamic>? data})
+      : _data = data;
 
   factory _$LogEntryImpl.fromJson(Map<String, dynamic> json) =>
       _$$LogEntryImplFromJson(json);
@@ -217,14 +207,8 @@ class _$LogEntryImpl implements _LogEntry {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    prefix,
-    timestamp,
-    line,
-    message,
-    const DeepCollectionEquality().hash(_data),
-  );
+  int get hashCode => Object.hash(runtimeType, prefix, timestamp, line, message,
+      const DeepCollectionEquality().hash(_data));
 
   /// Create a copy of LogEntry
   /// with the given fields replaced by the non-null parameter values.
@@ -236,18 +220,19 @@ class _$LogEntryImpl implements _LogEntry {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LogEntryImplToJson(this);
+    return _$$LogEntryImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _LogEntry implements LogEntry {
-  const factory _LogEntry({
-    required final String prefix,
-    required final DateTime timestamp,
-    final int? line,
-    required final String message,
-    final Map<String, dynamic>? data,
-  }) = _$LogEntryImpl;
+  const factory _LogEntry(
+      {required final String prefix,
+      required final DateTime timestamp,
+      final int? line,
+      required final String message,
+      final Map<String, dynamic>? data}) = _$LogEntryImpl;
 
   factory _LogEntry.fromJson(Map<String, dynamic> json) =
       _$LogEntryImpl.fromJson;

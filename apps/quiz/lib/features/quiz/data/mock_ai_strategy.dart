@@ -3,7 +3,7 @@ import 'package:uuid/uuid.dart';
 import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
 import 'package:quiz_generator/features/quiz/domain/ai_strategy.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 /// Estrategia mock para generar preguntas sin llamadas a API
 /// Responsabilidad: Generar preguntas de prueba para desarrollo y testing

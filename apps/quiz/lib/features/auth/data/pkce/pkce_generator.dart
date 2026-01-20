@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
-import '../../../../shared/helper/random_string_helper.dart';
+import 'package:core/core/helper/random_string_helper.dart';
 import '../auth_constants.dart';
 import 'i_pkce_generator.dart';
 

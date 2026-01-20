@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 import '../../core/routes.dart';
 
 /// Widget que muestra el estado de suscripción y quizzes restantes

@@ -1,8 +1,8 @@
 import 'package:quiz_generator/core/service_mode.dart';
 import 'package:quiz_generator/core/service_env.dart';
-import 'package:quiz_generator/shared/helper/env_helper.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
-import 'package:quiz_generator/shared/env/env_config.dart';
+import 'package:core/core/helper/env_helper.dart';
+import 'package:core/core/log/logger.dart';
+import 'package:quiz_generator/features/quiz/config/ai_config.dart';
 import 'package:quiz_generator/features/quiz/domain/ai_strategy.dart';
 import 'package:quiz_generator/features/quiz/data/real_ai_strategy.dart';
 import 'package:quiz_generator/features/quiz/data/mock_ai_strategy.dart';
@@ -36,9 +36,7 @@ abstract final class StrategyFactory {
   }
 
   static AIStrategy createStrategy() {
-    final config = StrategyConfig.load(
-      promptTemplate: EnvConfig.promptTemplate,
-    );
+    final config = StrategyConfig.load(promptTemplate: AiConfig.prompt);
     final strategy = _determineStrategy(config);
     _logStrategyCreated(strategy.runtimeType.toString());
     return strategy;

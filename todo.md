@@ -1,0 +1,31 @@
+# Incumplimientos de copilot-instructions.md
+
+
+- Logger usa debugPrint internamente, lo cual podría violar R16 (LoggerCentral: No debugPrint, solo Logger.info/error/debug).
+	- Archivo: [apps/quiz/lib/shared/log/logger.dart](apps/quiz/lib/shared/log/logger.dart#L8), [L15](apps/quiz/lib/shared/log/logger.dart#L15), [L22](apps/quiz/lib/shared/log/logger.dart#L22)
+- En archivos generados por Freezed hay throw _privateConstructorUsedError y comentarios, aunque suelen estar permitidos por ser generados.
+	- Ejemplo: [apps/quiz/lib/features/quiz/data/openai_message.freezed.dart](apps/quiz/lib/features/quiz/data/openai_message.freezed.dart#L13)
+- Algunos textos de UI están en archivos de constantes y no en AppLocalizations (R27: UIText=i18n(AppLocalizations)).
+	- Archivo: [apps/quiz/lib/core/strings.dart](apps/quiz/lib/core/strings.dart#L39-L58)
+- En el validador (Validator) se lanza throw Exception(message), lo cual viola R25 (No throw Exception(), usar excepción específica).
+	- Archivo: [apps/quiz/lib/shared/helper/validator.dart](apps/quiz/lib/shared/helper/validator.dart#L7), [L13](apps/quiz/lib/shared/helper/validator.dart#L13), [L19](apps/quiz/lib/shared/helper/validator.dart#L19), [L25](apps/quiz/lib/shared/helper/validator.dart#L25)
+- Revisar si hay widgets con más de 100 líneas (R31: Widget≤100L).
+	- Requiere revisión manual de archivos de widgets.
+- Revisar si hay funciones con más de 2 parámetros (R04: FnParams≤2).
+	- Requiere revisión manual o análisis con dart metrics.
+- Revisar si hay anidación de if mayor a 1 nivel (R05: Nest≤1).
+	- Requiere revisión manual o análisis con dart metrics.
+- Revisar si hay más de una clase pública por archivo (R06: 1PublicClass/File).
+	- Requiere revisión manual.
+- Revisar si hay lógica de negocio en widgets UI (R31: NoBizLogicUI).
+	- Requiere revisión manual.
+- Revisar si hay duplicación de lógica o valores (R38: NoDuplication).
+	- Requiere revisión manual.
+- Revisar si hay rutas como string literal (R28: Routes=Consts).
+	- No se detectaron en los fragmentos, pero revisar archivos de navegación.
+- Revisar si hay valores mágicos no extraídos a constantes (R26: MagicValues→Constants).
+	- No se detectaron en los fragmentos, pero revisar archivos de UI.
+- Revisar si hay logs fuera de métodos _log* (R13: LoggerOnlyIn _log*).
+	- Requiere revisión manual.
+- Revisar si hay comentarios no permitidos (R07: NoComments, solo ///).
+	- No se detectaron en los fragmentos, pero revisar archivos completos.

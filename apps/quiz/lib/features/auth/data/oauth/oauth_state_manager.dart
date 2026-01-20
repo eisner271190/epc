@@ -1,5 +1,5 @@
-import '../../../../shared/helper/local_storage.dart';
-import '../../../../shared/helper/random_string_helper.dart';
+import 'package:core/core/helper/local_storage.dart';
+import 'package:core/core/helper/random_string_helper.dart';
 import '../auth_constants.dart';
 import 'i_oauth_state_manager.dart';
 

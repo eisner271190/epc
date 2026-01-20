@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import 'package:quiz_generator/features/history/domain/history_item.dart';
 import 'package:quiz_generator/features/quiz/domain/topic.dart';
 

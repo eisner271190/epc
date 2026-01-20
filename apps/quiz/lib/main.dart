@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:monetization/monetization_module.dart';
+import 'package:quiz_generator/features/auth/config/auth_config.dart';
 import 'app.dart';
 import 'core/service_factory.dart';
-import 'shared/env/env_config.dart';
-import 'shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ void main(List<String> args) async {
 
   await dotenv.load(fileName: envFile);
 
-  EnvConfig.logAuthEnvironmentVariables(envFile);
+  AuthConfig.logEnvironmentVariables(envFile);
 
   final authService = ServiceFactory.createAuthService();
 

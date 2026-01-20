@@ -1,6 +1,6 @@
 import 'package:quiz_generator/features/quiz/application/quiz_provider.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 /// Caso de uso para iniciar un quiz
 /// Responsabilidad: Orquestar el proceso de creación de un quiz

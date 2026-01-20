@@ -54,6 +54,8 @@ dependencies:
 
   monetization:
     path: ../../packages/monetization
+  core:
+    path: ../../packages/core
   
 dev_dependencies:
   flutter_test:

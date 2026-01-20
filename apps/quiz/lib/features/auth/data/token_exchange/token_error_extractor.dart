@@ -1,4 +1,4 @@
-import '../../../../shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 /// Extractor de detalles de error del backend
 /// Responsabilidad: Extraer y formatear errores de respuesta

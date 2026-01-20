@@ -1,5 +1,5 @@
-import 'package:quiz_generator/shared/consume/http_client_impl.dart';
-import 'package:quiz_generator/shared/helper/validator.dart';
+import 'package:core/core/consume/http_client_impl.dart';
+import 'package:core/core/helper/validator.dart';
 import 'storage/token_storage.dart';
 import 'user/user_manager.dart';
 import 'pkce/pkce_generator.dart';

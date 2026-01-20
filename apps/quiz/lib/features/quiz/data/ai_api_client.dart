@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:quiz_generator/shared/log/logger.dart';
-import 'package:quiz_generator/shared/consume/i_http_client.dart';
-import 'package:quiz_generator/shared/consume/http_client_impl.dart';
-import 'package:quiz_generator/shared/helper/env_helper.dart';
-import 'package:quiz_generator/shared/helper/validator.dart';
+import 'package:core/core/log/logger.dart';
+import 'package:core/core/consume/i_http_client.dart';
+import 'package:core/core/consume/http_client_impl.dart';
+import 'package:core/core/helper/env_helper.dart';
+import 'package:core/core/helper/validator.dart';
 import 'package:quiz_generator/features/quiz/config/ai_env.dart';
 import 'i_api_client.dart';
 

@@ -3,7 +3,7 @@ import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
 import 'package:quiz_generator/features/quiz/application/ai_service.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
-import 'package:quiz_generator/shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import 'quiz_config.dart';
 import 'quiz_timer.dart';
 import 'quiz_result_calculator.dart';

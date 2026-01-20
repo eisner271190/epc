@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 
 /// Widget con botones de acción post-quiz
 /// Responsabilidad: Renderizar botones de repetir y volver

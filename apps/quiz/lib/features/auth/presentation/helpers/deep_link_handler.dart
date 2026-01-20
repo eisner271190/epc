@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:app_links/app_links.dart';
 import '../../domain/i_auth_service.dart';
-import '../../../../shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 
 class AuthCallbackListener {
   final IAuthService authService;

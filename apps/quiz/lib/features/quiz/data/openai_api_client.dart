@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:quiz_generator/shared/log/logger.dart';
-import 'package:quiz_generator/shared/consume/i_http_client.dart';
-import 'package:quiz_generator/shared/consume/http_client_impl.dart';
-import 'package:quiz_generator/shared/env/env_config.dart';
+import 'package:core/core/log/logger.dart';
+import 'package:core/core/consume/i_http_client.dart';
+import 'package:core/core/consume/http_client_impl.dart';
+import 'package:quiz_generator/features/quiz/config/ai_config.dart';
 import 'i_api_client.dart';
 import 'openai_payload.dart';
 import 'openai_message.dart';
@@ -33,8 +33,8 @@ class OpenAiApiClient implements IApiClient {
   }
 
   String _getApiKey() {
-    final apiKey = EnvConfig.apiKey;
-    if (apiKey == null || apiKey.isEmpty) {
+    final apiKey = AiConfig.apiKey;
+    if (apiKey.isEmpty) {
       throw Exception('API_KEY no está configurada en .env');
     }
     return apiKey;
@@ -42,7 +42,7 @@ class OpenAiApiClient implements IApiClient {
 
   OpenAiPayload _buildPayload(String prompt) {
     return OpenAiPayload(
-      model: EnvConfig.model,
+      model: AiConfig.model,
       messages: [OpenAiMessage(role: 'user', content: prompt)],
       temperature: _defaultTemperature,
       maxTokens: _defaultMaxTokens,
@@ -55,7 +55,7 @@ class OpenAiApiClient implements IApiClient {
   ) async {
     return await _httpClient
         .post(
-          EnvConfig.apiUrl,
+          AiConfig.apiUrl,
           headers: _buildHeaders(apiKey),
           body: payload.toJson(),
         )

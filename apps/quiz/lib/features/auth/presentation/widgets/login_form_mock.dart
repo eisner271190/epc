@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 import 'email_form_field.dart';
 import 'password_form_field.dart';
 import 'login_submit_button.dart';

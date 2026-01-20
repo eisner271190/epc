@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 import '../widgets/error_message_box.dart';
 import '../widgets/google_login_button.dart';
 import '../widgets/login_form_mock.dart';

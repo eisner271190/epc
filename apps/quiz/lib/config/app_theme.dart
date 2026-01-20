@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'theme_strategy.dart';
 import 'theme_strategy_registry.dart';
 import 'chatgpt_theme_strategy.dart';
-import '../shared/env/env_config.dart';
-import '../shared/log/logger.dart';
+import 'package:core/core/env/env_config.dart';
+import 'package:core/core/log/logger.dart';
 
 class AppTheme {
   static final ThemeStrategyRegistry _registry = _initializeRegistry();

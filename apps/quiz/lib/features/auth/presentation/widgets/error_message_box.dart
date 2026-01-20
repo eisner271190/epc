@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 
 class ErrorMessageBox extends StatelessWidget {
   final String message;

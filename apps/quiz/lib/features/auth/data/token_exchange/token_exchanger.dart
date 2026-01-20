@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../../../../shared/log/logger.dart';
+import 'package:core/core/log/logger.dart';
 import '../../domain/auth_tokens.dart';
 import '../../config/auth_config.dart';
 import '../auth_constants.dart';

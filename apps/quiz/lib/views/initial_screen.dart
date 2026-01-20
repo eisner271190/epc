@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:core/core/constants/app_spacing.dart';
 import 'widgets/subscription_status_card.dart';
 import 'widgets/history_drawer.dart';
 import 'widgets/initial_screen_actions.dart';

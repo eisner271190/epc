@@ -1,5 +1,5 @@
-import 'package:quiz_generator/shared/log/logger.dart';
-import 'package:quiz_generator/shared/helper/i_validator.dart';
+import 'package:core/core/log/logger.dart';
+import 'package:core/core/helper/i_validator.dart';
 import '../oauth/i_oauth_state_manager.dart';
 import 'i_redirect_handler.dart';
 
