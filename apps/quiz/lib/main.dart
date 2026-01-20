@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:monetization/monetization_module.dart';
-import 'package:monetization/core/interfaces/imonetization_module.dart';
 import 'app.dart';
 import 'core/service_factory.dart';
 import 'shared/env/env_config.dart';
