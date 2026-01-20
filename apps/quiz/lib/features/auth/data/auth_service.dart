@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:quiz_generator/shared/log/logger.dart';
 import '../domain/auth_user.dart';
+import 'revenuecat_sync.dart';
 import '../domain/i_auth_service.dart';
 import 'auth_dependencies.dart';
 import 'hosted_ui/hosted_ui_initiator.dart';
@@ -72,6 +73,7 @@ class AuthService implements IAuthService {
   void _notifyAuthStateChange(AuthUser? user) {
     _currentUser = user;
     _authStateController.add(user);
+    syncRevenueCatUser(user);
   }
 
   @override
