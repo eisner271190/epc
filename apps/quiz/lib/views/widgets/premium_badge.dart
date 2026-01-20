@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/shared/constants/app_spacing.dart';
+import 'package:provider/provider.dart';
+import 'package:monetization/core/models/user_entitlement.dart';
 
 /// Widget que muestra el badge de Premium en el AppBar
 /// Responsabilidad: UI del indicador de estado premium
@@ -8,6 +10,9 @@ class PremiumBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final entitlement = Provider.of<UserEntitlement?>(context);
+    final isPremium = entitlement?.isActive == true;
+
     return Padding(
       padding: const EdgeInsets.only(right: AppSpacing.small),
       child: Center(
@@ -24,16 +29,16 @@ class PremiumBadge extends StatelessWidget {
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 Icons.workspace_premium,
                 color: Colors.white,
                 size: AppSpacing.large,
               ),
-              SizedBox(width: AppSpacing.tiny),
+              const SizedBox(width: AppSpacing.tiny),
               Text(
-                'PREMIUM',
-                style: TextStyle(
+                isPremium ? 'PREMIUM' : 'FREE',
+                style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 12,
