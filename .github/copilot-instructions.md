@@ -143,3 +143,6 @@ ValidateFirst
 SpecificErrors
 NoNull
 NoSwallow
+
+# Idioma
+Siempre responde en español.

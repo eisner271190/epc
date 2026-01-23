@@ -7,6 +7,9 @@ melos_epc.iml
 build/
 coverage/
 
+# Lock files
+pubspec.lock
+
 # Melos
 .melos_tool/
 
