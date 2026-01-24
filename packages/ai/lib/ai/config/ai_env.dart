@@ -6,24 +6,24 @@ class AiEnv implements IEnv {
   AiEnv();
 
   // Keys
-  static const String keyPrompt = 'AI_PROMPT';
   static const String keyApiKey = 'AI_API_KEY';
   static const String keyApiUrl = 'AI_API_URL';
   static const String keyModel = 'AI_MODEL';
+  static const String keyPrompt = 'AI_PROMPT';
 
   // Getters
-  static String get prompt => EnvHelper.getEnv(keyPrompt);
   static String get apiKey => EnvHelper.getEnv(keyApiKey);
   static String get apiUrl => EnvHelper.getEnv(keyApiUrl);
   static String get model => EnvHelper.getEnv(keyModel);
+  static String get prompt => EnvHelper.getEnv(keyPrompt);
 
   @override
   List<EnvVarDescriptor> buildListEnvs() {
     return [
-      EnvVarDescriptor(name: keyPrompt, isRequired: true),
       EnvVarDescriptor(name: keyApiKey, isRequired: true),
       EnvVarDescriptor(name: keyApiUrl, isRequired: true),
       EnvVarDescriptor(name: keyModel, isRequired: false),
+      EnvVarDescriptor(name: keyPrompt, isRequired: true),
     ];
   }
 }
