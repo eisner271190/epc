@@ -1,5 +1,5 @@
 import 'package:core/core/log/logger.dart';
-import 'package:quiz_generator/features/auth/config/auth_config.dart';
+import 'package:quiz_generator/features/auth/config/auth_env.dart';
 import '../pkce/i_pkce_generator.dart';
 import '../oauth/i_oauth_state_manager.dart';
 import '../browser/i_browser_launcher.dart';
@@ -34,7 +34,7 @@ class HostedUIInitiator {
   }
 
   String _buildAuthorizeUrl(String codeChallenge, String state) {
-    final url = AuthConfig.getAuthorizeUrl(
+    final url = AuthEnv.getAuthorizeUrl(
       codeChallenge: codeChallenge,
       state: state,
     );

@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:core/core/log/logger.dart';
+import 'package:quiz_generator/features/auth/config/auth_env.dart';
 import '../../domain/auth_tokens.dart';
-import '../../config/auth_config.dart';
 import '../auth_constants.dart';
 import 'i_token_exchanger.dart';
 import 'token_response_validator.dart';
@@ -23,7 +23,7 @@ class TokenExchanger implements ITokenExchanger {
     required String code,
     required String codeVerifier,
   }) async {
-    final url = Uri.parse(AuthConfig.tokenExchangeUrl);
+    final url = Uri.parse(AuthEnv.tokenExchangeUrl);
     _logCallingEndpoint(url);
 
     try {
@@ -63,7 +63,7 @@ class TokenExchanger implements ITokenExchanger {
           body: jsonEncode({
             'code': code,
             'code_verifier': codeVerifier,
-            'redirect_uri': AuthConfig.redirectUri,
+            'redirect_uri': AuthEnv.redirectUri,
           }),
         )
         .timeout(

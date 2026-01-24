@@ -1,7 +1,7 @@
+import 'package:quiz_generator/features/auth/config/auth_env.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:core/core/log/logger.dart';
 import 'package:core/core/consume/i_http_client.dart';
-import 'package:quiz_generator/features/auth/config/auth_config.dart';
 import '../auth_constants.dart';
 import 'i_logout_executor.dart';
 
@@ -30,7 +30,7 @@ class LogoutExecutor implements ILogoutExecutor {
   Future<void> _notifyBackendLogout() async {
     try {
       await _httpClient
-          .post(AuthConfig.logoutUrl)
+          .post(AuthEnv.logoutUrl)
           .timeout(Duration(seconds: AuthConstants.logoutTimeoutSeconds));
     } catch (e) {
       Logger.error('[AUTH] No se pudo notificar logout', error: e);
@@ -38,7 +38,7 @@ class LogoutExecutor implements ILogoutExecutor {
   }
 
   Future<void> _launchCognitoLogout() async {
-    final logoutUrl = Uri.parse(AuthConfig.getCognitoLogoutUrl());
+    final logoutUrl = Uri.parse(AuthEnv.getCognitoLogoutUrl());
     if (await canLaunchUrl(logoutUrl)) {
       await launchUrl(logoutUrl, mode: LaunchMode.externalApplication);
     }

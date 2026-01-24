@@ -1,41 +1,18 @@
+import 'package:core/core/env/env_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:monetization/monetization_module.dart';
-import 'package:quiz_generator/features/auth/config/auth_config.dart';
 import 'app.dart';
 import 'core/service_factory.dart';
-import 'package:core/core/log/logger.dart';
+import 'shared/build_descriptors.dart';
 
-void main(List<String> args) async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EnvManager.load();
+  await EnvManager.validate(buildDescriptors());
 
-  String envFile = "assets/.env.mock";
-
-  if (args.isNotEmpty) {
-    final env = args[0];
-    envFile = "assets/.env.$env";
-    _logLoadingEnvironment(envFile);
-  }
-
-  await dotenv.load(fileName: envFile);
-
-  AuthConfig.logEnvironmentVariables(envFile);
-
+  // Aquí puedes continuar con el resto de la inicialización
   final authService = ServiceFactory.createAuthService();
-
   await authService.restoreSession();
-
-  // Inicializar el módulo de monetización usando la interfaz
   await MonetizationModule().initialize();
-
-  _logAppStarting();
   runApp(QuizGeneratorApp());
-}
-
-void _logLoadingEnvironment(String file) {
-  Logger.info('[APP] Loading environment', data: {'file': file});
-}
-
-void _logAppStarting() {
-  Logger.info('[APP] App starting');
 }
