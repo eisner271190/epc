@@ -144,5 +144,14 @@ SpecificErrors
 NoNull
 NoSwallow
 
+R40 FeatureEnv:
+Class={Feature}Env
+Path=features/{feature}/config/{feature}_env.dart
+Implements=IEnv
+Keys=static const String keyX='ENV_KEY_X'
+Getter=static String get x=>getEnv({Feature}Env.keyX)
+Descriptor=EnvVarDescriptor(name:keyX,isRequired:true)
+AddToBuildDescriptors={Feature}Env().buildListEnvs()
+
 # Idioma
 Siempre responde en español.
