@@ -56,6 +56,8 @@ dependencies:
     path: ../../packages/monetization
   core:
     path: ../../packages/core
+  ai:
+    path: ../../packages/ai
   
 dev_dependencies:
   flutter_test:

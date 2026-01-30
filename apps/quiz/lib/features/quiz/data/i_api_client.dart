@@ -1,3 +1,0 @@
-abstract class IApiClient {
-  Future<Map<String, dynamic>> callApi(String prompt);
-}
