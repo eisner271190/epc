@@ -44,15 +44,15 @@ class QuizProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    final generatedQuestions = await AIService.generateQuestions(
-      QuizGenerationConfig(
-        topic: topic,
-        language: language,
-        numQuestions: numQuestions,
-        optionsCount: optionsCount,
-        timePerQuestionSeconds: timePerQuestionSeconds,
-      ),
+    final genConfig = QuizGenerationConfig(
+      topic: topic,
+      language: language,
+      numQuestions: numQuestions,
+      optionsCount: optionsCount,
+      timePerQuestionSeconds: timePerQuestionSeconds,
     );
+
+    final generatedQuestions = await AIService.generateQuestions(genConfig);
 
     _state.setQuestions(generatedQuestions);
     isLoading = false;

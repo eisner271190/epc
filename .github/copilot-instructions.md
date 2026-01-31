@@ -153,5 +153,8 @@ Getter=static String get x=>getEnv({Feature}Env.keyX)
 Descriptor=EnvVarDescriptor(name:keyX,isRequired:true)
 AddToBuildDescriptors={Feature}Env().buildListEnvs()
 
+R41 NoConstructorInCall
+
 # Idioma
 Siempre responde en español.
+

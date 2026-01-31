@@ -1,23 +1,44 @@
 import 'package:core/core/env/env_var_descriptor.dart';
 import 'package:core/core/env/i_env.dart';
 import 'package:core/core/helper/env_helper.dart';
+import 'package:core/core/helper/type_parser.dart';
 
 class QuizEnv implements IEnv {
   QuizEnv();
 
   // Keys
-  static const String keyBackendHost = 'QUIZ_BACKEND_HOST';
-  static const String keyApiKey = 'QUIZ_API_KEY';
+  static const String keyTopic = 'QUIZ_TOPIC';
+  static const String keyLanguage = 'QUIZ_LANGUAGE';
+  static const String keyNumQuestions = 'QUIZ_NUM_QUESTIONS';
+  static const String keyOptionsCount = 'QUIZ_OPTIONS_COUNT';
+  static const String keyTimePerQuestionSeconds =
+      'QUIZ_TIME_PER_QUESTION_SECONDS';
 
-  // Getters
-  static String get backendHost => EnvHelper.getEnv(keyBackendHost);
-  static String get apiKey => EnvHelper.getEnv(keyApiKey);
+  // Getters (use EnvHelper.getEnv as the canonical accessor)
+  static String get topic => EnvHelper.getEnv(keyTopic);
+  static String get language => EnvHelper.getEnv(keyLanguage);
+
+  static int get numQuestions =>
+      TypeParser.parseInt(EnvHelper.getEnv(keyNumQuestions), 10);
+
+  static int get optionsCount =>
+      TypeParser.parseInt(EnvHelper.getEnv(keyOptionsCount), 4);
+
+  static Duration get timePerQuestion => Duration(
+    seconds: TypeParser.parseInt(
+      EnvHelper.getEnv(keyTimePerQuestionSeconds),
+      30,
+    ),
+  );
 
   @override
   List<EnvVarDescriptor> buildListEnvs() {
     return [
-      EnvVarDescriptor(name: keyBackendHost, isRequired: true),
-      EnvVarDescriptor(name: keyApiKey, isRequired: false),
+      EnvVarDescriptor(name: keyTopic, isRequired: true),
+      EnvVarDescriptor(name: keyLanguage, isRequired: false),
+      EnvVarDescriptor(name: keyNumQuestions, isRequired: false),
+      EnvVarDescriptor(name: keyOptionsCount, isRequired: false),
+      EnvVarDescriptor(name: keyTimePerQuestionSeconds, isRequired: false),
     ];
   }
 }
