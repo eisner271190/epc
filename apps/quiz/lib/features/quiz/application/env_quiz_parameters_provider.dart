@@ -1,4 +1,5 @@
-import 'quiz_config.dart';
+import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
+
 import 'i_quiz_parameters_provider.dart';
 import '../config/quiz_env.dart';
 
@@ -6,14 +7,14 @@ import '../config/quiz_env.dart';
 /// `QuizEnv`.
 class EnvQuizParametersProvider implements IQuizParametersProvider {
   @override
-  QuizConfig getParameters() {
+  QuizGenerationConfig getParameters() {
     final topic = QuizEnv.topic;
     final language = QuizEnv.language;
     final numQuestions = QuizEnv.numQuestions;
     final optionsCount = QuizEnv.optionsCount;
     final timePerQuestion = QuizEnv.timePerQuestion.inSeconds;
 
-    return QuizConfig(
+    return QuizGenerationConfig(
       topic: topic,
       language: language,
       numQuestions: numQuestions,

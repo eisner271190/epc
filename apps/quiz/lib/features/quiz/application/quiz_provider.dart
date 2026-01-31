@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_generator/features/quiz/application/env_quiz_parameters_provider.dart';
+import 'package:quiz_generator/features/quiz/application/i_quiz_parameters_provider.dart';
 import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
 import 'package:quiz_generator/features/quiz/application/ai_service.dart';
@@ -17,22 +19,11 @@ class QuizProvider extends ChangeNotifier {
   final QuizTimer timer = QuizTimer();
   final QuizStateCoordinator _state = QuizStateCoordinator();
   final QuizHistoryCoordinator _history = QuizHistoryCoordinator();
+  final IQuizParametersProvider parametersProvider =
+      EnvQuizParametersProvider();
 
   bool isLoading = false;
-
-  // Delegación a config
-  String get topic => config.topic;
-  String get language => config.language;
-  int get numQuestions => config.numQuestions;
-  int get optionsCount => config.optionsCount;
-  int? get timePerQuestionSeconds => config.timePerQuestionSeconds;
-
-  set topic(String value) => config.setTopic(value);
-  set language(String value) => config.setLanguage(value);
-  set numQuestions(int value) => config.setNumQuestions(value);
-  set optionsCount(int value) => config.setOptionsCount(value);
-  set timePerQuestionSeconds(int? value) => config.setTimePerQuestion(value);
-
+  QuizGenerationConfig genConfig = QuizGenerationConfig.empty();
   // Delegación a state
   List<Question> get questions => _state.questions;
   int get currentIndex => _state.currentIndex;
@@ -44,19 +35,13 @@ class QuizProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
 
-    final genConfig = QuizGenerationConfig(
-      topic: topic,
-      language: language,
-      numQuestions: numQuestions,
-      optionsCount: optionsCount,
-      timePerQuestionSeconds: timePerQuestionSeconds,
-    );
+    genConfig = parametersProvider.getParameters();
 
     final generatedQuestions = await AIService.generateQuestions(genConfig);
 
     _state.setQuestions(generatedQuestions);
     isLoading = false;
-    timer.start(timePerQuestionSeconds, nextQuestion);
+    timer.start(genConfig.timePerQuestionSeconds, nextQuestion);
     Logger.info('[PROVIDER] Quiz started', data: {'count': questions.length});
     notifyListeners();
   }
@@ -85,8 +70,8 @@ class QuizProvider extends ChangeNotifier {
   Future<void> saveToHistory(HistoryProvider historyProvider) async {
     await _history.saveToHistory(
       historyProvider: historyProvider,
-      topic: topic,
-      language: language,
+      topic: genConfig.topic,
+      language: genConfig.language,
       questions: questions,
     );
   }

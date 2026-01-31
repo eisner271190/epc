@@ -13,6 +13,15 @@ class QuizGenerationConfig with _$QuizGenerationConfig {
     int? timePerQuestionSeconds,
   }) = _QuizGenerationConfig;
 
+  /// Constructor de conveniencia sin parámetros con valores por defecto.
+  factory QuizGenerationConfig.empty() => const QuizGenerationConfig(
+    topic: '',
+    language: 'Español',
+    numQuestions: 5,
+    optionsCount: 4,
+    timePerQuestionSeconds: null,
+  );
+
   factory QuizGenerationConfig.fromJson(Map<String, dynamic> json) =>
       _$QuizGenerationConfigFromJson(json);
 }

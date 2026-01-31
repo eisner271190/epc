@@ -14,7 +14,6 @@ class QuizEnv implements IEnv {
   static const String keyTimePerQuestionSeconds =
       'QUIZ_TIME_PER_QUESTION_SECONDS';
 
-  // Getters (use EnvHelper.getEnv as the canonical accessor)
   static String get topic => EnvHelper.getEnv(keyTopic);
   static String get language => EnvHelper.getEnv(keyLanguage);
 
