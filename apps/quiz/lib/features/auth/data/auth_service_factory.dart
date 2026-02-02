@@ -1,6 +1,6 @@
 import '../domain/i_auth_service.dart';
 import 'auth_service.dart';
-import 'mock_auth_service.dart';
+import '../../../shared/mock/mock_auth_service.dart';
 import '../../../core/app_config.dart';
 
 /// Factory para crear instancias de IAuthService según el perfil configurado.

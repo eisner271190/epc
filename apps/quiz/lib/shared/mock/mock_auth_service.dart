@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:core/core/log/logger.dart';
-import '../domain/auth_user.dart';
-import '../domain/i_auth_service.dart';
+import '../../features/auth/domain/auth_user.dart';
+import '../../features/auth/domain/i_auth_service.dart';
 
 /// Implementación mock del servicio de autenticación.
 /// Útil para desarrollo y testing sin configurar Cognito.

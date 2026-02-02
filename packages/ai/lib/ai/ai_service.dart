@@ -10,7 +10,7 @@ import 'dto/ai_response.dart';
 import 'i_ai_service.dart';
 import 'config/ai_env.dart';
 
-abstract class AiService<TRes extends AIResponse> implements IAiService<TRes> {
+class AiService<TRes extends AIResponse> implements IAiService<TRes> {
   final IHttpClient _httpClient = HttpClientImpl();
 
   static const double _defaultTemperature = 0.7;

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_generator/features/quiz/application/env_quiz_parameters_provider.dart';
 import 'package:quiz_generator/features/quiz/application/i_quiz_parameters_provider.dart';
 import 'package:quiz_generator/features/quiz/application/quiz_config.dart';
+import 'package:quiz_generator/features/quiz/data/ai_service_adapter.dart';
 import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
-import 'package:quiz_generator/features/quiz/application/ai_service.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
 import 'package:core/core/log/logger.dart';
 import 'quiz_timer.dart';
@@ -15,6 +15,7 @@ import 'quiz_history_coordinator.dart';
 /// Provider de estado del quiz
 /// Responsabilidad: Coordinar estado del quiz actual
 class QuizProvider extends ChangeNotifier {
+  final AiServiceAdapter adapter = AiServiceAdapter();
   final QuizConfig config = QuizConfig();
   final QuizTimer timer = QuizTimer();
   final QuizStateCoordinator _state = QuizStateCoordinator();
@@ -27,6 +28,17 @@ class QuizProvider extends ChangeNotifier {
   // Delegación a state
   List<Question> get questions => _state.questions;
   set topic(String value) => config.setTopic(value);
+  int get numQuestions => config.numQuestions;
+  set numQuestions(int v) => config.setNumQuestions(v);
+
+  int get optionsCount => config.optionsCount;
+  set optionsCount(int v) => config.setOptionsCount(v);
+
+  String get language => config.language;
+  set language(String v) => config.setLanguage(v);
+
+  int? get timePerQuestionSeconds => config.timePerQuestionSeconds;
+  set timePerQuestionSeconds(int? v) => config.setTimePerQuestion(v);
   int get currentIndex => _state.currentIndex;
 
   int get remainingSeconds => timer.remainingSeconds;
@@ -39,7 +51,7 @@ class QuizProvider extends ChangeNotifier {
     genConfig = parametersProvider.getParameters();
     genConfig = genConfig.withTopic(config.topic);
 
-    final generatedQuestions = await AIService.generateQuestions(genConfig);
+    final generatedQuestions = await adapter.generateQuestions(genConfig);
 
     _state.setQuestions(generatedQuestions);
     isLoading = false;

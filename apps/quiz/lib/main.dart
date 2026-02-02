@@ -2,8 +2,9 @@ import 'package:core/core/env/env_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:monetization/monetization_module.dart';
 import 'app.dart';
-import 'core/service_factory.dart';
 import 'shared/build_descriptors.dart';
+import 'shared/component_registry.dart';
+import 'features/auth/domain/i_auth_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,7 +12,8 @@ void main() async {
   await EnvManager.validate(buildDescriptors());
 
   // Aquí puedes continuar con el resto de la inicialización
-  final authService = ServiceFactory.createAuthService();
+  ComponentRegistry.build();
+  final authService = ComponentRegistry.get<IAuthService>();
   await authService.restoreSession();
   await MonetizationModule().initialize();
   runApp(QuizGeneratorApp());

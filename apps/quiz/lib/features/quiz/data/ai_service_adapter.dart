@@ -1,24 +1,22 @@
 import 'dart:convert';
 
+import 'package:ai/ai/config/ai_env.dart';
 import 'package:core/core/log/logger.dart';
 import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
-import 'package:quiz_generator/features/quiz/domain/ai_strategy.dart';
 
 import 'package:ai/ai/dto/ai_request.dart';
 import 'package:ai/ai/dto/openai_response.dart';
 import 'package:ai/ai/dto/ai_response.dart';
 import 'package:ai/ai/i_ai_service.dart';
+import 'package:quiz_generator/shared/component_registry.dart';
 
-/// Adapter que conecta un `IAiService` del paquete `ai` con la abstracción
-/// `AIStrategy` usada por la app `quiz`.
-class AiServiceAdapter implements AIStrategy {
-  final IAiService<AIResponse<OpenAiResponse>> _aiService;
-  final String _promptTemplate;
+class AiServiceAdapter {
+  final IAiService<AIResponse<OpenAiResponse>> _aiService =
+      ComponentRegistry.get<IAiService<AIResponse<OpenAiResponse>>>();
 
-  AiServiceAdapter(this._aiService, this._promptTemplate);
+  AiServiceAdapter();
 
-  @override
   Future<List<Question>> generateQuestions(QuizGenerationConfig config) async {
     _logGeneratingQuestions();
 
@@ -42,6 +40,7 @@ class AiServiceAdapter implements AIStrategy {
   }
 
   String _buildPrompt(QuizGenerationConfig config) {
+    final _promptTemplate = AiEnv.prompt;
     return _promptTemplate
         .replaceAll('{numQuestions}', config.numQuestions.toString())
         .replaceAll('{topic}', config.topic)

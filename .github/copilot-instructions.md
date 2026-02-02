@@ -23,7 +23,7 @@ Verify: ^class [A-Z]
 
 R07 NoComments
 Only /// allowed
-Verify: ^\s*//(?!/)
+Verify: ^\s*(//|///|/\*)
 
 R08 NoHardcode
 Verify: ['"][A-Za-z0-9]{6,}['"]

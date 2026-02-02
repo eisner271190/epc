@@ -1,0 +1,1 @@
+enum ComponentMode { mock, real }

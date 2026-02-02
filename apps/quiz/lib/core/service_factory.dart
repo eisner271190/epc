@@ -4,7 +4,7 @@ import 'package:core/core/helper/env_helper.dart';
 import 'package:core/core/log/logger.dart';
 import 'package:quiz_generator/features/auth/domain/i_auth_service.dart';
 import 'package:quiz_generator/features/auth/data/auth_service.dart';
-import 'package:quiz_generator/features/auth/data/mock_auth_service.dart';
+import 'package:quiz_generator/shared/mock/mock_auth_service.dart';
 
 class ServiceFactory {
   ServiceFactory._();
