@@ -15,6 +15,7 @@ class AuthEnv implements IEnv {
   static const String keyRedirectUriWeb = 'AUTH_REDIRECT_URI_WEB';
   static const String keyScopes = 'AUTH_SCOPES';
   static const String keyIdentityProvider = 'AUTH_IDENTITY_PROVIDER';
+  static const String keyServiceMode = 'AUTH_SERVICE_MODE';
 
   static String get backendHost => getEnv(AuthEnv.keyBackendHost);
   static String get tokenExchangePath => getEnv(AuthEnv.keyTokenExchangePath);
@@ -24,6 +25,7 @@ class AuthEnv implements IEnv {
   static String get redirectUri => getEnv(AuthEnv.keyRedirectUri);
   static String get scopes => getEnv(AuthEnv.keyScopes);
   static String get identityProvider => getEnv(AuthEnv.keyIdentityProvider);
+  static String get serviceMode => getEnv(AuthEnv.keyServiceMode);
 
   static String getEnv(String key) => EnvHelper.getEnv(key);
 
@@ -39,6 +41,7 @@ class AuthEnv implements IEnv {
       EnvVarDescriptor(name: keyRedirectUriWeb),
       EnvVarDescriptor(name: keyScopes),
       EnvVarDescriptor(name: keyIdentityProvider),
+      EnvVarDescriptor(name: keyServiceMode),
     ];
   }
 

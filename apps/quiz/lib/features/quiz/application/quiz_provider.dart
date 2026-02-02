@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/features/quiz/application/env_quiz_parameters_provider.dart';
 import 'package:quiz_generator/features/quiz/application/i_quiz_parameters_provider.dart';
+import 'package:quiz_generator/features/quiz/application/quiz_config.dart';
 import 'package:quiz_generator/features/quiz/domain/question.dart';
 import 'package:quiz_generator/features/quiz/domain/quiz_generation_config.dart';
 import 'package:quiz_generator/features/quiz/application/ai_service.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
 import 'package:core/core/log/logger.dart';
-import 'quiz_config.dart';
 import 'quiz_timer.dart';
 import 'quiz_result_calculator.dart';
 import 'quiz_state_coordinator.dart';
@@ -26,16 +26,18 @@ class QuizProvider extends ChangeNotifier {
   QuizGenerationConfig genConfig = QuizGenerationConfig.empty();
   // Delegación a state
   List<Question> get questions => _state.questions;
+  set topic(String value) => config.setTopic(value);
   int get currentIndex => _state.currentIndex;
 
   int get remainingSeconds => timer.remainingSeconds;
 
   Future<void> startQuiz() async {
-    Logger.info('[PROVIDER] Starting quiz', data: config.toMap());
+    Logger.info('[PROVIDER] Starting quiz');
     isLoading = true;
     notifyListeners();
 
     genConfig = parametersProvider.getParameters();
+    genConfig = genConfig.withTopic(config.topic);
 
     final generatedQuestions = await AIService.generateQuestions(genConfig);
 

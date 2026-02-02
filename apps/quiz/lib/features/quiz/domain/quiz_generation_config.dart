@@ -25,3 +25,9 @@ class QuizGenerationConfig with _$QuizGenerationConfig {
   factory QuizGenerationConfig.fromJson(Map<String, dynamic> json) =>
       _$QuizGenerationConfigFromJson(json);
 }
+
+// Extensión de conveniencia para 'setear' topic devolviendo una nueva
+// instancia (inmutable) usando `copyWith` generado por freezed.
+extension QuizGenerationConfigSetTopic on QuizGenerationConfig {
+  QuizGenerationConfig withTopic(String topic) => copyWith(topic: topic);
+}
