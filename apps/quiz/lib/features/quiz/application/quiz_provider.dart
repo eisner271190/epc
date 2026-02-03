@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/features/quiz/application/env_quiz_parameters_provider.dart';
 import 'package:quiz_generator/features/quiz/application/i_quiz_parameters_provider.dart';
+import 'package:quiz_generator/features/quiz/application/quiz_dependencies.dart';
+import 'package:quiz_generator/features/quiz/application/quiz_orchestrator.dart';
 import 'package:quiz_generator/features/quiz/application/quiz_config.dart';
 import 'package:quiz_generator/features/quiz/data/ai_service_adapter.dart';
 import 'package:quiz_generator/features/quiz/domain/question.dart';
@@ -15,17 +17,26 @@ import 'quiz_history_coordinator.dart';
 /// Provider de estado del quiz
 /// Responsabilidad: Coordinar estado del quiz actual
 class QuizProvider extends ChangeNotifier {
-  final AiServiceAdapter adapter = AiServiceAdapter();
-  final QuizConfig config = QuizConfig();
-  final QuizTimer timer = QuizTimer();
-  final QuizStateCoordinator _state = QuizStateCoordinator();
-  final QuizHistoryCoordinator _history = QuizHistoryCoordinator();
-  final IQuizParametersProvider parametersProvider =
-      EnvQuizParametersProvider();
+  final AiServiceAdapter adapter;
+  final QuizConfig config;
+  final QuizTimer timer;
+  final QuizStateCoordinator _state;
+  final QuizHistoryCoordinator _history;
+  final IQuizParametersProvider parametersProvider;
 
   bool isLoading = false;
   QuizGenerationConfig genConfig = QuizGenerationConfig.empty();
-  // Delegación a state
+
+  QuizProvider({QuizDependencies? deps})
+    : adapter = deps?.adapter ?? AiServiceAdapter(),
+      config = deps?.config ?? QuizConfig(),
+      timer = deps?.timer ?? QuizTimer(),
+      _state = deps?.state ?? QuizStateCoordinator(),
+      _history = deps?.history ?? QuizHistoryCoordinator(),
+      parametersProvider =
+          deps?.parametersProvider ?? EnvQuizParametersProvider();
+
+  /// Delegación a state
   List<Question> get questions => _state.questions;
   set topic(String value) => config.setTopic(value);
   int get numQuestions => config.numQuestions;
@@ -44,20 +55,31 @@ class QuizProvider extends ChangeNotifier {
   int get remainingSeconds => timer.remainingSeconds;
 
   Future<void> startQuiz() async {
-    Logger.info('[PROVIDER] Starting quiz');
+    _logStartQuiz();
     isLoading = true;
     notifyListeners();
 
-    genConfig = parametersProvider.getParameters();
-    genConfig = genConfig.withTopic(config.topic);
+    final orchestrator = QuizOrchestrator(
+      adapter: adapter,
+      timer: timer,
+      state: _state,
+      parametersProvider: parametersProvider,
+    );
 
-    final generatedQuestions = await adapter.generateQuestions(genConfig);
+    genConfig = await orchestrator.start(config, nextQuestion);
 
-    _state.setQuestions(generatedQuestions);
     isLoading = false;
-    timer.start(genConfig.timePerQuestionSeconds, nextQuestion);
-    Logger.info('[PROVIDER] Quiz started', data: {'count': questions.length});
+
+    _logQuizStarted();
     notifyListeners();
+  }
+
+  void _logStartQuiz() {
+    Logger.info('[PROVIDER] Starting quiz');
+  }
+
+  void _logQuizStarted() {
+    Logger.info('[PROVIDER] Quiz started', data: {'count': questions.length});
   }
 
   void selectAnswer(int index) {
