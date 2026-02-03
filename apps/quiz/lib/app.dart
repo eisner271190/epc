@@ -1,18 +1,18 @@
+import 'package:auth/features/auth/domain/i_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:quiz_generator/shared/component_registry.dart';
 import 'config/app_theme.dart';
-import 'core/service_factory.dart';
 import 'core/routes.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';
 import 'features/quiz/application/quiz_provider.dart';
 import 'features/history/application/history_provider.dart';
-import 'features/auth/domain/i_auth_service.dart';
-import 'features/auth/presentation/login_page.dart';
 import 'views/initial_screen.dart';
 import 'views/settings_screen.dart';
+import 'views/login_page.dart';
 import 'features/quiz/presentation/quiz_screen.dart';
 import 'features/quiz/presentation/result_screen.dart';
 import 'features/history/presentation/history_screen.dart';
@@ -21,7 +21,7 @@ import 'views/screens/subscription_plans_screen.dart';
 class QuizGeneratorApp extends StatelessWidget {
   QuizGeneratorApp({super.key});
 
-  final IAuthService authService = ServiceFactory.createAuthService();
+  final IAuthService authService = ComponentRegistry.get<IAuthService>();
 
   @override
   Widget build(BuildContext context) {

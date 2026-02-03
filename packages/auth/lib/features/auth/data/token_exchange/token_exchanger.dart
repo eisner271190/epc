@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:core/core/log/logger.dart';
-import 'package:quiz_generator/features/auth/config/auth_env.dart';
+import '../../config/auth_env.dart';
 import '../../domain/auth_tokens.dart';
 import '../auth_constants.dart';
 import 'i_token_exchanger.dart';

@@ -1,5 +1,5 @@
 import 'package:core/core/log/logger.dart';
-import 'package:quiz_generator/features/auth/config/auth_env.dart';
+import '../../config/auth_env.dart';
 import '../pkce/i_pkce_generator.dart';
 import '../oauth/i_oauth_state_manager.dart';
 import '../browser/i_browser_launcher.dart';

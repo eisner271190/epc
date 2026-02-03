@@ -1,8 +1,9 @@
+import 'package:auth/features/auth/domain/i_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_generator/providers/theme_provider.dart';
 import 'package:quiz_generator/providers/locale_provider.dart';
-import 'package:quiz_generator/features/auth/data/auth_service_factory.dart';
+import 'package:quiz_generator/shared/component_registry.dart';
 import 'package:quiz_generator/views/widgets/premium_badge.dart';
 import 'package:quiz_generator/core/routes.dart';
 
@@ -45,7 +46,7 @@ class InitialScreenActions extends StatelessWidget {
   }
 
   Future<void> _handleLogout(BuildContext context) async {
-    await AuthServiceFactory.create().signOut();
+    await ComponentRegistry.get<IAuthService>().signOut();
     if (context.mounted) {
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushReplacementNamed(AppRoutes.login);

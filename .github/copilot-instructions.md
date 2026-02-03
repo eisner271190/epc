@@ -155,6 +155,13 @@ AddToBuildDescriptors={Feature}Env().buildListEnvs()
 
 R41 NoConstructorInCall
 
+R42
+SCAN flutter
+FIND missing_imports, missing_dependencies
+FIX imports, pubspec.yaml
+REQUIRE errors=0 warnings=0
+FAIL if build_errors
+
 # Idioma
 Siempre responde en español.
 

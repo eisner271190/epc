@@ -1,3 +1,0 @@
-abstract class IHostedUIInitiator {
-  Future<bool> initiateLogin();
-}

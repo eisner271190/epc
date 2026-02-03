@@ -1,3 +1,0 @@
-abstract class ILogoutExecutor {
-  Future<void> executeLogout();
-}

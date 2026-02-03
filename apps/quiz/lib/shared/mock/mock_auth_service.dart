@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:auth/features/auth/domain/auth_user.dart';
+import 'package:auth/features/auth/domain/i_auth_service.dart';
 import 'package:core/core/log/logger.dart';
-import '../../features/auth/domain/auth_user.dart';
-import '../../features/auth/domain/i_auth_service.dart';
 
 /// Implementación mock del servicio de autenticación.
 /// Útil para desarrollo y testing sin configurar Cognito.
@@ -9,7 +9,6 @@ class MockAuthService implements IAuthService {
   static final MockAuthService _instance = MockAuthService._internal();
   factory MockAuthService() => _instance;
   MockAuthService._internal() {
-    // Emitir evento inicial para que el StreamBuilder no se quede en waiting
     _authStateController.add(null);
   }
 

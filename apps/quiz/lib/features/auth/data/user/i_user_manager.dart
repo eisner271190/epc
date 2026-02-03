@@ -1,8 +1,0 @@
-import '../../domain/auth_user.dart';
-
-/// Interface para el manejo del estado del usuario
-abstract class IUserManager {
-  Future<void> saveUserInfo(AuthUser user);
-  Future<AuthUser?> loadUserInfo();
-  Future<void> clearUserInfo();
-}

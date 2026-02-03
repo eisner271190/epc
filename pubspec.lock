@@ -9,13 +9,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "92.0.0"
-  ai:
-    dependency: transitive
-    description:
-      path: "packages/ai"
-      relative: true
-    source: path
-    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:
@@ -592,10 +585,10 @@ packages:
     dependency: "direct dev"
     description:
       name: melos
-      sha256: ff2da25990d83b0db883eb257e4fa25eb78150a329e7bfab7a379499d0f5f6f7
+      sha256: "7dcc4444d79b538ab8353bb38308f97e90b032984f75e8fd516fedfe8160b35e"
       url: "https://pub.dev"
     source: hosted
-    version: "7.3.0"
+    version: "7.4.0"
   meta:
     dependency: transitive
     description:
@@ -792,10 +785,10 @@ packages:
     dependency: transitive
     description:
       name: purchases_flutter
-      sha256: "1a7132bac772d90e9b959364369beddfc7fca8a3d2909d6e4d818cef7fd64a8f"
+      sha256: cdb7046f0aa2e78ea165fb23c9406a5ee1676a65fb48012d7d7551a4d7234065
       url: "https://pub.dev"
     source: hosted
-    version: "9.10.6"
+    version: "9.10.8"
   shared_preferences:
     dependency: transitive
     description:

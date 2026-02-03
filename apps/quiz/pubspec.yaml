@@ -58,6 +58,8 @@ dependencies:
     path: ../../packages/core
   ai:
     path: ../../packages/ai
+  auth:
+    path: ../../packages/auth
   
 dev_dependencies:
   flutter_test:

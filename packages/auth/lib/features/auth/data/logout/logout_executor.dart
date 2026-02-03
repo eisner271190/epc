@@ -1,7 +1,7 @@
-import 'package:quiz_generator/features/auth/config/auth_env.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:core/core/log/logger.dart';
 import 'package:core/core/consume/i_http_client.dart';
+import '../../config/auth_env.dart';
 import '../auth_constants.dart';
 import 'i_logout_executor.dart';
 

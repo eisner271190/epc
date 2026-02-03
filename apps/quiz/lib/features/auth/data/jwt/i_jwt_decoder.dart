@@ -1,6 +1,0 @@
-import '../../domain/auth_user.dart';
-
-/// Interface para decodificar JWT y crear usuario
-abstract class IJWTDecoder {
-  AuthUser decodeAndCreateUser(String idToken);
-}

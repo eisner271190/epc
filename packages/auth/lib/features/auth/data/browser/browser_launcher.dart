@@ -1,5 +1,5 @@
-import 'package:url_launcher/url_launcher.dart';
 import 'package:core/core/log/logger.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'i_browser_launcher.dart';
 
 class BrowserLauncher implements IBrowserLauncher {

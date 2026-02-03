@@ -1,10 +1,9 @@
 import 'package:ai/ai/i_ai_service.dart';
 import 'package:ai/ai/ai_service.dart';
+import 'package:auth/features/auth/domain/i_auth_service.dart';
 import 'package:core/profile/component_provider.dart';
-import 'package:quiz_generator/features/auth/data/auth_service.dart';
 import 'package:quiz_generator/shared/mock/mock_ai_service.dart';
 import 'package:quiz_generator/shared/mock/mock_auth_service.dart';
-import 'package:quiz_generator/features/auth/domain/i_auth_service.dart';
 
 class ComponentRegistry {
   ComponentRegistry._();
@@ -18,7 +17,7 @@ class ComponentRegistry {
     final auth = ComponentProvider.resolve<IAuthService>(
       envKey: 'AUTH_SERVICE_MODE',
       mock: MockAuthService(),
-      real: AuthService(),
+      real: MockAuthService(),
     );
     components['auth'] = auth;
     _typed[IAuthService] = auth;

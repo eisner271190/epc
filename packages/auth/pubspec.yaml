@@ -1,7 +1,7 @@
-name: ai
-description: AI integrations and strategies
-version: 0.0.1
+name: auth
 resolution: workspace
+description: Authentication package for EPC monorepo
+version: 0.0.1
 publish_to: none
 
 environment:
@@ -13,6 +13,11 @@ dependencies:
     sdk: flutter
   core:
     path: ../core
+  url_launcher: ^6.3.1
+  crypto: ^3.0.5
+  http: ^1.5.0
+  flutter_secure_storage: ^10.0.0
+  purchases_flutter: ^9.10.8
 
 dev_dependencies:
   flutter_test:
