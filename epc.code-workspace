@@ -5,6 +5,14 @@
 		}
 	],
 	"settings": {
-		"java.enabled": false
+		"java.enabled": false,
+		"workbench.colorCustomizations": {
+      "titleBar.activeBackground": "#02569B",
+      "titleBar.activeForeground": "#FFFFFF",
+      "activityBar.background": "#027DFD",
+      "activityBar.foreground": "#FFFFFF",
+      "statusBar.background": "#02569B",
+      "statusBar.foreground": "#FFFFFF"
+    }
 	}
 }
