@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:quiz_generator/features/quiz/application/quiz_provider.dart';
 import 'package:quiz_generator/features/history/application/history_provider.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/core/routes.dart';
+import 'package:quiz_generator/shared/routes.dart';
 
 /// Widget del botón para iniciar el quiz
 /// Responsabilidad: UI y validación para iniciar quiz

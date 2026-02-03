@@ -5,7 +5,7 @@ import 'package:quiz_generator/providers/theme_provider.dart';
 import 'package:quiz_generator/providers/locale_provider.dart';
 import 'package:quiz_generator/shared/component_registry.dart';
 import 'package:quiz_generator/views/widgets/premium_badge.dart';
-import 'package:quiz_generator/core/routes.dart';
+import 'package:quiz_generator/shared/routes.dart';
 
 /// Widget con las acciones del AppBar
 /// Responsabilidad: UI de botones de acción en el AppBar

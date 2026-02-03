@@ -6,7 +6,7 @@ import 'package:quiz_generator/features/quiz/application/start_quiz_use_case.dar
 import 'package:quiz_generator/features/history/application/history_provider.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
 import 'package:core/core/log/logger.dart';
-import 'package:quiz_generator/core/routes.dart';
+import 'package:quiz_generator/shared/routes.dart';
 import 'package:core/core/constants/app_spacing.dart';
 import 'upgrade_dialog.dart';
 

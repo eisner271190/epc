@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_generator/shared/component_registry.dart';
 import 'config/app_theme.dart';
-import 'core/routes.dart';
+import 'shared/routes.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/theme_provider.dart';
 import 'providers/locale_provider.dart';

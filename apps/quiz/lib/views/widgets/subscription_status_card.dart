@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:core/core/constants/app_spacing.dart';
-import '../../core/routes.dart';
+import '../../shared/routes.dart';
 
 /// Widget que muestra el estado de suscripción y quizzes restantes
 /// Responsabilidad: UI de información de uso de quizzes

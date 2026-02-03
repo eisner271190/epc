@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/core/routes.dart';
+import 'package:quiz_generator/shared/routes.dart';
 
 /// Diálogo de actualización a premium
 /// Responsabilidad: Mostrar mensaje cuando se alcanza límite gratuito

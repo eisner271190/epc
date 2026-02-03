@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../core/routes.dart';
+import '../../shared/routes.dart';
 
 /// Sección de estado de suscripción en configuración
 /// Responsabilidad: Mostrar info de suscripción y enlace a planes

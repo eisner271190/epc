@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:quiz_generator/features/quiz/application/quiz_provider.dart';
 import 'package:quiz_generator/providers/theme_provider.dart';
 import 'package:quiz_generator/l10n/app_localizations.dart';
-import 'package:quiz_generator/core/routes.dart';
+import 'package:quiz_generator/shared/routes.dart';
 import 'package:core/core/constants/app_spacing.dart';
 import 'widgets/topic_input_section.dart';
 import 'widgets/quiz_config_section.dart';
