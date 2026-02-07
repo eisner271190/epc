@@ -28,3 +28,8 @@ melos:
       run: melos exec -c 1 --scope=monetization -- flutter clean && flutter pub get && flutter analyze
     bootstrap:
       run: melos bootstrap
+
+    quiz_chrome:
+      run: melos exec -c 1 --scope=quiz_generator -- flutter run -d chrome --debug --web-port=5000
+    quiz_mobile:
+      run: melos exec -c 1 --scope=quiz_generator -- flutter run -d 2201117SL --debug

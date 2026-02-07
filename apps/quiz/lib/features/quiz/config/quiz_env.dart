@@ -7,14 +7,12 @@ class QuizEnv implements IEnv {
   QuizEnv();
 
   // Keys
-  static const String keyTopic = 'QUIZ_TOPIC';
   static const String keyLanguage = 'QUIZ_LANGUAGE';
   static const String keyNumQuestions = 'QUIZ_NUM_QUESTIONS';
   static const String keyOptionsCount = 'QUIZ_OPTIONS_COUNT';
   static const String keyTimePerQuestionSeconds =
       'QUIZ_TIME_PER_QUESTION_SECONDS';
 
-  static String get topic => EnvHelper.getEnv(keyTopic);
   static String get language => EnvHelper.getEnv(keyLanguage);
 
   static int get numQuestions =>
@@ -33,7 +31,6 @@ class QuizEnv implements IEnv {
   @override
   List<EnvVarDescriptor> buildListEnvs() {
     return [
-      EnvVarDescriptor(name: keyTopic, isRequired: true),
       EnvVarDescriptor(name: keyLanguage, isRequired: false),
       EnvVarDescriptor(name: keyNumQuestions, isRequired: false),
       EnvVarDescriptor(name: keyOptionsCount, isRequired: false),
