@@ -1,42 +1,93 @@
-import 'package:ai/ai/dto/ai_response.dart';
-import 'package:ai/ai/dto/openai_response.dart';
-import 'package:ai/ai/i_ai_service.dart';
-import 'package:ai/ai/ai_service.dart';
-import 'package:auth/features/auth/data/auth_service.dart';
-import 'package:auth/features/auth/domain/i_auth_service.dart';
 import 'package:core/profile/component_provider.dart';
-import 'package:quiz_generator/shared/mock/mock_ai_service.dart';
-import 'package:quiz_generator/shared/mock/mock_auth_service.dart';
+import 'package:core/profile/component_parameter.dart';
+import 'package:core/core/log/logger.dart';
 
 class ComponentRegistry {
   ComponentRegistry._();
+  static final Map<String, ComponentParameter<dynamic>> _params = {};
+  static final Map<String, dynamic> _typed = {};
 
-  static final Map<Type, dynamic> _typed = {};
+  static T get<T>() {
+    final hashKey = ComponentParameter.getHash(T);
 
-  /// Build mantiene compatibilidad con el mapa por `String`.
-  static Map<String, dynamic> build() {
-    final components = <String, dynamic>{};
-
-    final auth = ComponentProvider.resolve<IAuthService>(
-      envKey: 'AUTH_SERVICE_MODE',
-      mock: MockAuthService(),
-      real: AuthService(),
+    Logger.info(
+      '[COMPONENT_REGISTRY] get requested',
+      data: {'hashKey': hashKey},
     );
-    components['auth'] = auth;
-    _typed[IAuthService] = auth;
 
-    final ai =
-        ComponentProvider.resolve<IAiService<AIResponse<OpenAiResponse>>>(
-          envKey: 'AI_SERVICE_MODE',
-          mock: MockAiService(),
-          real: AiService<AIResponse<OpenAiResponse>>(),
-        );
-    components['ai'] = ai;
-    _typed[IAiService<AIResponse<OpenAiResponse>>] = ai;
+    if (_typed.containsKey(hashKey)) {
+      return _typed[hashKey] as T;
+    }
 
-    return components;
+    throw StateError('Component not found for type $hashKey');
   }
 
-  /// Acceso tipado por interfaz: `final auth = ComponentRegistry.get<IAuthService>();`
-  static T get<T>() => _typed[T] as T;
+  static void registry(ComponentParameter param) {
+    Logger.info(
+      '[COMPONENT_REGISTRY] Register component',
+      data: {'envKey': param.envKey},
+    );
+    _params[param.hashKey] = param;
+    Logger.info(
+      '[COMPONENT_REGISTRY] Registered component',
+      data: {'hashKey': param.hashKey},
+    );
+  }
+
+  static T getComponent<T>(String hashKey) {
+    Logger.info(
+      '[COMPONENT_REGISTRY] Resolving component',
+      data: {'hashKey': hashKey},
+    );
+    final param = _params[hashKey] as ComponentParameter<T>;
+    try {
+      final instance = ComponentProvider.resolve<T>(param);
+      Logger.info(
+        '[COMPONENT_REGISTRY] Resolved component',
+        data: {'hashKey': hashKey},
+      );
+      return instance;
+    } catch (e, st) {
+      Logger.error(
+        '[COMPONENT_REGISTRY] Error resolving component',
+        data: {'hashKey': hashKey},
+        error: e,
+        stackTrace: st as StackTrace,
+      );
+      rethrow;
+    }
+  }
+
+  static void registryAll() {
+    Logger.info(
+      '[COMPONENT_REGISTRY] Registry all start',
+      data: {'count': _params.length},
+    );
+    for (final hashKey in _params.keys) {
+      try {
+        final component = getComponent(hashKey);
+        add(component, hashKey);
+      } catch (e, st) {
+        Logger.error(
+          '[COMPONENT_REGISTRY] Error registryAll for component',
+          data: {'hashKey': hashKey},
+          error: e,
+          stackTrace: st as StackTrace,
+        );
+      }
+    }
+    Logger.info('[COMPONENT_REGISTRY] Registry all finished');
+  }
+
+  static void add<T>(T instance, String hashKey) {
+    Logger.info(
+      '[COMPONENT_REGISTRY] Adding instance',
+      data: {'hashKey': hashKey},
+    );
+    _typed[hashKey] = instance;
+    Logger.info(
+      '[COMPONENT_REGISTRY] Added instance',
+      data: {'hashKey': hashKey},
+    );
+  }
 }
