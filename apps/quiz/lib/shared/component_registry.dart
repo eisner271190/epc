@@ -1,5 +1,8 @@
+import 'package:ai/ai/dto/ai_response.dart';
+import 'package:ai/ai/dto/openai_response.dart';
 import 'package:ai/ai/i_ai_service.dart';
 import 'package:ai/ai/ai_service.dart';
+import 'package:auth/features/auth/data/auth_service.dart';
 import 'package:auth/features/auth/domain/i_auth_service.dart';
 import 'package:core/profile/component_provider.dart';
 import 'package:quiz_generator/shared/mock/mock_ai_service.dart';
@@ -17,18 +20,19 @@ class ComponentRegistry {
     final auth = ComponentProvider.resolve<IAuthService>(
       envKey: 'AUTH_SERVICE_MODE',
       mock: MockAuthService(),
-      real: MockAuthService(),
+      real: AuthService(),
     );
     components['auth'] = auth;
     _typed[IAuthService] = auth;
 
-    final ai = ComponentProvider.resolve<IAiService>(
-      envKey: 'AI_SERVICE_MODE',
-      mock: MockAiService(),
-      real: AiService(),
-    );
+    final ai =
+        ComponentProvider.resolve<IAiService<AIResponse<OpenAiResponse>>>(
+          envKey: 'AI_SERVICE_MODE',
+          mock: MockAiService(),
+          real: AiService<AIResponse<OpenAiResponse>>(),
+        );
     components['ai'] = ai;
-    _typed[IAiService] = ai;
+    _typed[IAiService<AIResponse<OpenAiResponse>>] = ai;
 
     return components;
   }
